@@ -1,0 +1,8 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/primeng-helper",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "styleIncludePaths": ["./src/scss"]
+  }
+}

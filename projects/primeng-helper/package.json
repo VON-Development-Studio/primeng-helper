@@ -1,0 +1,24 @@
+{
+  "name": "@von-development-studio/primeng-helper",
+  "version": "20.3.0",
+  "description": "PrimeNG Helper wrapper.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VON-Development-Studio/primeng-helper"
+  },
+  "keywords": [
+    "angular",
+    "angular 20",
+    "primeng"
+  ],
+  "author": "Luis García Castro",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/core": "^20.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.4.0"
+  },
+  "sideEffects": false
+}
