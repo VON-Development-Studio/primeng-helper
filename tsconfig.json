@@ -12,11 +12,11 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "paths": {
-      "ng-rest-service": [
-        "./dist/ng-rest-service"
-      ],
       "primeng-helper": [
         "./dist/primeng-helper"
+      ],
+      "primeng-helper/*": [
+        "./dist/primeng-helper/*"
       ]
     },
     "esModuleInterop": true,
@@ -36,7 +36,7 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
   },
   "references": [
     {
