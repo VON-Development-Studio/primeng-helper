@@ -11,14 +11,6 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-    "paths": {
-      "primeng-helper": [
-        "./dist/primeng-helper"
-      ],
-      "primeng-helper/*": [
-        "./dist/primeng-helper/*"
-      ]
-    },
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
@@ -30,7 +22,25 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "useDefineForClassFields": false,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@example/*": [
+        "projects/example/src/app/*"
+      ],
+      "@example-assets/*": [
+        "projects/example/src/assets/*",
+        "projects/example/public/*"
+      ],
+      "@von-ds/primeng-helper": [
+        "projects/primeng-helper/src/public-api.ts"
+      ],
+      "@von-ds/primeng-helper/*": [
+        "projects/primeng-helper/src/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

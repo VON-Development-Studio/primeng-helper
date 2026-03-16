@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
-import { VonFormValidationDirective } from '../../../../../primeng-helper/src/lib/form-validation/von-form-validation.directive';
+import { VonFormValidationDirective } from '@von-ds/primeng-helper';
 
 @Component({
   selector: 'complex-internal-component',

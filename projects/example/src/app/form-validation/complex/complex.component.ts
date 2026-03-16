@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-import { VonFormValidateDirective } from '../../../../../primeng-helper/src/lib/form-validation/von-form-validate.directive';
+import { VonFormValidateDirective } from '@von-ds/primeng-helper';
 import { ComplexInternalComponent } from './complex-internal.component';
 
 @Component({
