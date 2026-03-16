@@ -5,7 +5,7 @@ export const routes: Routes = [
     path: 'autocomplete',
     loadComponent: () =>
       import('./form-validation/autocomplete/autocomplete.component').then(
-        (m) => m.AutocompleteComponent
+        (m) => m.AutoCompleteComponent
       ),
   },
   {

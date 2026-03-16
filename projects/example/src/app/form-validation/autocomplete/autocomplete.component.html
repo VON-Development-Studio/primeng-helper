@@ -1,0 +1,302 @@
+<section class="flex flex-wrap gap-4 py-4">
+  <h2 class="w-full">Form in {{ isEnglish() ? "English" : "Spanish" }}</h2>
+
+  <p-card class="w-[calc(50%-(var(--spacing)*4))]" header="Required forms">
+    <form
+      #requiredForm
+      class="flex flex-col gap-2 mt-4"
+      (validate)="submitAction()"
+      novalidate
+      [attr.validation-es]="isEnglish() ? undefined : true"
+    >
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test1"
+            [(ngModel)]="test1"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            required
+            validation
+          />
+          <label for="test1">Test 1</label>
+        </p-floatlabel>
+        <small>Required validation field.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test2"
+            [(ngModel)]="test2"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            required
+            validation
+          />
+        </p-floatlabel>
+        <small>Required validation field without label.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test3"
+            [(ngModel)]="test3"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            required
+            validation
+            [customName]="'Test 3 Label'"
+          />
+        </p-floatlabel>
+        <small>Required validation field with manual label.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test4"
+            [(ngModel)]="test4"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            required
+            validation
+            [requiredMessage]="customMessage"
+          />
+        </p-floatlabel>
+        <small>Required validation field with custom message.</small>
+      </div>
+
+      <footer class="inline-flex items-center justify-end gap-4 w-full">
+        <p-button
+          type="button"
+          severity="secondary"
+          label="Reset"
+          (onClick)="requiredForm.reset()"
+        />
+        <p-button type="submit" severity="success" label="Validate" />
+      </footer>
+    </form>
+  </p-card>
+
+  <p-card class="w-[calc(50%-(var(--spacing)*4))]" header="Equal to forms">
+    <form
+      #equalToForm
+      class="flex flex-col gap-2 mt-4"
+      (validate)="submitAction()"
+      novalidate
+      [attr.validation-es]="isEnglish() ? undefined : true"
+    >
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test5"
+            [(ngModel)]="test5"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            validation
+            equalTo="a [2]"
+          />
+          <label for="test5">Test 5</label>
+        </p-floatlabel>
+        <small>Equal to "a [2]" validation field.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test6"
+            [(ngModel)]="test6"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            validation
+            equalTo="A [2]"
+            [equalToIgnoreCase]="true"
+          />
+          <label for="test6">Test 6</label>
+        </p-floatlabel>
+        <small>Equal to "A [2]" validation field ignore case.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test7"
+            [(ngModel)]="test7"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            validation
+            equalTo="A [2]"
+            [equalToIgnoreCase]="true"
+          />
+        </p-floatlabel>
+        <small>Equal to "A [2]" validation field without label.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test8"
+            [(ngModel)]="test8"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            validation
+            [customName]="'Test 8 Label'"
+            equalTo="A [2]"
+            [equalToIgnoreCase]="true"
+          />
+        </p-floatlabel>
+        <small>Equal to "A [2]" validation field with custom label.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test9"
+            [(ngModel)]="test9"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            validation
+            equalTo="A [2]"
+            [equalToIgnoreCase]="true"
+            [equalToMessage]="customMessage"
+          />
+        </p-floatlabel>
+        <small>Equal to "A [2]" validation field with custom message.</small>
+      </div>
+
+      <footer class="inline-flex items-center justify-end gap-4 w-full">
+        <p-button
+          type="button"
+          severity="secondary"
+          label="Reset"
+          (onClick)="equalToForm.reset()"
+        />
+        <p-button type="submit" severity="success" label="Validate" />
+      </footer>
+    </form>
+  </p-card>
+
+  <p-card class="w-[calc(50%-(var(--spacing)*4))]" header="Custom forms">
+    <form
+      #customForm
+      class="flex flex-col gap-2 mt-4"
+      (validate)="submitAction()"
+      novalidate
+      [attr.validation-es]="isEnglish() ? undefined : true"
+    >
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test10"
+            [(ngModel)]="test10"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            validation
+            [customValidation]="test10 === 'custom [0]'"
+          />
+          <label for="test10">Test 10</label>
+        </p-floatlabel>
+        <small>Custom validation field (field equal to "custom [0]").</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test11"
+            [(ngModel)]="test11"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            validation
+            [customValidation]="false"
+          />
+        </p-floatlabel>
+        <small>Custom validation field without label (always false).</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test12"
+            [(ngModel)]="test12"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            validation
+            [customValidation]="false"
+            [customName]="'Test 12 Label'"
+          />
+        </p-floatlabel>
+        <small
+          >Required validation field with manual label (always false).</small
+        >
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-autocomplete
+            name="test13"
+            [(ngModel)]="test13"
+            [suggestions]="results"
+            (completeMethod)="search($event.query)"
+            class="w-full"
+            inputStyleClass="w-full"
+            [forceSelection]="true"
+            validation
+            [customValidation]="false"
+            [customValidationMessage]="customMessage"
+          />
+        </p-floatlabel>
+        <small
+          >Required validation field with custom message (always false).</small
+        >
+      </div>
+
+      <footer class="inline-flex items-center justify-end gap-4 w-full">
+        <p-button
+          type="button"
+          severity="secondary"
+          label="Reset"
+          (onClick)="customForm.reset()"
+        />
+        <p-button type="submit" severity="success" label="Validate" />
+      </footer>
+    </form>
+  </p-card>
+</section>
