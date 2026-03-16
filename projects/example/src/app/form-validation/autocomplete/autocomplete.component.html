@@ -4,7 +4,7 @@
   <p-card class="w-[calc(50%-(var(--spacing)*4))]" header="Required forms">
     <form
       #requiredForm
-      class="flex flex-col gap-2 mt-4"
+      class="flex flex-col gap-4 mt-4"
       (validate)="submitAction()"
       novalidate
       [attr.validation-es]="isEnglish() ? undefined : true"
@@ -19,8 +19,8 @@
             class="w-full"
             inputStyleClass="w-full"
             [forceSelection]="true"
-            required
             validation
+            required
           />
           <label for="test1">Test 1</label>
         </p-floatlabel>
@@ -37,8 +37,8 @@
             class="w-full"
             inputStyleClass="w-full"
             [forceSelection]="true"
-            required
             validation
+            required
           />
         </p-floatlabel>
         <small>Required validation field without label.</small>
@@ -54,8 +54,8 @@
             class="w-full"
             inputStyleClass="w-full"
             [forceSelection]="true"
-            required
             validation
+            required
             [customName]="'Test 3 Label'"
           />
         </p-floatlabel>
@@ -72,8 +72,8 @@
             class="w-full"
             inputStyleClass="w-full"
             [forceSelection]="true"
-            required
             validation
+            required
             [requiredMessage]="customMessage"
           />
         </p-floatlabel>
