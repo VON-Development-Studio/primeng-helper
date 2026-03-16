@@ -1,7 +1,18 @@
 <main>
   <header>
-    <h1>VON Development Studio</h1>
-    <h2>PrimeNG Helper</h2>
+    <section>
+      <h1>VON Development Studio</h1>
+      <h2>PrimeNG Helper</h2>
+    </section>
+
+    <section class="inline-flex items-center gap-2 my-4">
+      <span>Español</span>
+      <p-toggleswitch
+        [(ngModel)]="isEnglish"
+        (onChange)="handleLanguageChange()"
+      />
+      <span>English</span>
+    </section>
 
     <p-menubar [model]="navigationBar" />
   </header>
