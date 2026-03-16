@@ -3,6 +3,7 @@ import {
   ElementRef,
   EventEmitter,
   HostListener,
+  inject,
   Input,
   OnInit,
   Output,
@@ -43,11 +44,9 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   };
   protected $label?: HTMLElement;
 
-  constructor(
-    protected element?: ElementRef,
-    protected renderer?: Renderer2,
-    protected messageService?: VonMessageService,
-  ) {}
+  protected element = inject(ElementRef);
+  protected renderer = inject(Renderer2);
+  protected messageService = inject(VonMessageService);
 
   ngOnInit(): void {
     const $closestFormEl =
@@ -104,6 +103,7 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
       });
     } else {
       this.renderer?.removeClass(this.element?.nativeElement, 'field__error');
+      this.renderer?.removeClass(this.element?.nativeElement, 'ng-invalid');
     }
     this.element?.nativeElement.setAttribute('validation', valid);
   };

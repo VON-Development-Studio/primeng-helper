@@ -1,7 +1,6 @@
-import { Directive, ElementRef, Renderer2 } from '@angular/core';
+import { Directive } from '@angular/core';
 import { NG_VALIDATORS, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { VonMessageService } from '../message/von-message.service';
 import { VonFormValidationBase } from './von-form-validation-base';
 
 @Directive({
@@ -16,14 +15,6 @@ import { VonFormValidationBase } from './von-form-validation-base';
   ],
 })
 export class VonFormValidationDirective extends VonFormValidationBase {
-  constructor(
-    override element: ElementRef,
-    override renderer: Renderer2,
-    override messageService: VonMessageService,
-  ) {
-    super();
-  }
-
   protected verifyValidationMessage = () => {
     let message = '';
     let valid = false;
@@ -49,7 +40,11 @@ export class VonFormValidationDirective extends VonFormValidationBase {
   };
 
   protected fieldNotValid = () => {
-    return this.validator['isEmpty'] || this.validator['isNotEqual'];
+    return (
+      this.validator['isEmpty'] ||
+      this.validator['isNotEqual'] ||
+      this.validator['isCustom']
+    );
   };
 
   protected validateRequired: ValidatorFn = (
