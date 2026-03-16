@@ -1,0 +1,155 @@
+<section class="flex gap-4 py-4">
+  <p-card class="w-[50%]" header="Formulario en Español">
+    <form
+      class="ui-g ui-g-6"
+      (validate)="submitAction()"
+      validation-es
+      novalidate
+    >
+      <div class="ui-g ui-g-12 ui-g-nopad">
+        <span class="ui-g-12">
+          <p-select
+            [options]="testOptions"
+            [(ngModel)]="test1es"
+            name="test1es"
+            required
+            validation
+            class="w-full"
+          ></p-select>
+        </span>
+      </div>
+
+      <div class="ui-g ui-g-12 ui-g-nopad">
+        <label class="ui-g-4" for="test2es">Prueba 2</label>
+        <span class="ui-g-8">
+          <p-select
+            [options]="testOptions"
+            [(ngModel)]="test2es"
+            name="test2es"
+            required
+            validation
+            class="w-full"
+          ></p-select>
+        </span>
+      </div>
+
+      <div class="ui-g ui-g-12 ui-g-nopad">
+        <label class="ui-g-4" for="test3es">Prueba 3</label>
+        <span class="ui-g-8">
+          <p-select
+            [options]="testOptions"
+            [(ngModel)]="test3es"
+            name="test3es"
+            required
+            [requiredMessage]="'Mensaje personalizado'"
+            validation
+            class="w-full"
+          ></p-select>
+        </span>
+      </div>
+
+      <div class="ui-g ui-g-12 ui-g-nopad">
+        <label class="ui-g-4" for="test4es">Prueba 4</label>
+        <span class="ui-g-8">
+          <p-select
+            [options]="testOptions"
+            [(ngModel)]="test4es"
+            name="test4es"
+            validation
+            class="w-full"
+          ></p-select>
+        </span>
+      </div>
+
+      <footer class="w-full" [style.textAlign]="'right'">
+        <p-button type="submit" severity="success" label="Validar"></p-button>
+      </footer>
+    </form>
+  </p-card>
+
+  <p-card class="w-[50%]" header="Form in English">
+    <form class="ui-g ui-g-6" (validate)="submitAction()" novalidate>
+      <h2 class="ui-g-12">Form 2 [Required]</h2>
+
+      <div class="ui-g ui-g-12 ui-g-nopad">
+        <label class="ui-g-4" for="test1">Test 1</label>
+        <span class="ui-g-8">
+          <p-select
+            [options]="testOptions"
+            [(ngModel)]="test1"
+            name="test1"
+            required
+            validation
+            class="w-full"
+          ></p-select>
+        </span>
+      </div>
+
+      <div class="ui-g ui-g-12 ui-g-nopad">
+        <label class="ui-g-4" for="test2">{{
+          "Test 2 with dynamic value"
+        }}</label>
+        <span class="ui-g-8">
+          <p-select
+            [options]="testOptions"
+            [(ngModel)]="test2"
+            name="test2"
+            required
+            validation
+            class="w-full"
+          ></p-select>
+        </span>
+      </div>
+
+      <div class="ui-g ui-g-12 ui-g-nopad">
+        <label class="ui-g-4" for="test3">{{ "Test 3" }}</label>
+        <span class="ui-g-8">
+          <p-select
+            [options]="testOptions"
+            [(ngModel)]="test3"
+            name="test3"
+            required
+            validation
+            customName="Custom Test"
+            class="w-full"
+          >
+          </p-select>
+        </span>
+      </div>
+
+      <div class="ui-g ui-g-12 ui-g-nopad">
+        <label class="ui-g-4" for="test4">{{ "Test 4" }}</label>
+        <span class="ui-g-8">
+          <p-select
+            [options]="testOptions"
+            [(ngModel)]="test4"
+            name="test4"
+            required
+            validation
+            [customName]="'Custom Test 2'"
+            class="w-full"
+          ></p-select>
+        </span>
+      </div>
+
+      <div class="ui-g ui-g-12 ui-g-nopad">
+        <label class="ui-g-4" for="test5">{{ "Test 5" }}</label>
+        <span class="ui-g-8">
+          <p-select
+            [options]="testOptions"
+            [(ngModel)]="test5"
+            name="test5"
+            required
+            [requiredMessage]="'Custom Message'"
+            validation
+            class="w-full"
+          ></p-select>
+        </span>
+      </div>
+
+      <footer class="w-full" [style.textAlign]="'right'">
+        <p-button type="submit" severity="success" label="Validate"></p-button>
+      </footer>
+    </form>
+  </p-card>
+</section>

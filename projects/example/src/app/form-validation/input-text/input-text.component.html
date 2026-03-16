@@ -1,0 +1,169 @@
+<section class="flex gap-4 py-4">
+  <p-card class="w-[50%]" header="Formulario en Español">
+    <form
+      class="flex flex-col gap-2 mt-4"
+      (validate)="submitAction()"
+      validation-es
+      novalidate
+    >
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <label for="prueba1">Prueba 1</label>
+          <input
+            pInputText
+            name="prueba1"
+            [(ngModel)]="input1es"
+            validation
+            class="w-full"
+          />
+        </p-floatlabel>
+        <small>Campo sin validación</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="prueba2"
+            [(ngModel)]="input2es"
+            required
+            [equalTo]="'luis'"
+            validation
+            class="w-full"
+          />
+        </p-floatlabel>
+        <small>
+          Doble validación: <i>required</i> y <i>equalTo=luis</i> sin una
+          etiqueta de label.
+        </small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <label for="prueba3">Prueba 3</label>
+          <input
+            pInputText
+            name="prueba3"
+            [(ngModel)]="input3es"
+            required
+            validation
+            class="w-full"
+          />
+        </p-floatlabel>
+        <small>Validación de campo requerido.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <label for="prueba4">Prueba 4</label>
+          <input
+            pInputText
+            name="prueba4"
+            [(ngModel)]="input4es"
+            required
+            requiredMessage="Mensaje personalizado"
+            validation
+            class="w-full"
+          />
+        </p-floatlabel>
+        <small>
+          Validación de campo requerido con un mensaje personalizado.
+        </small>
+      </div>
+
+      <footer class="w-full" [style.textAlign]="'right'">
+        <p-button type="submit" severity="success" label="Validar"></p-button>
+      </footer>
+    </form>
+  </p-card>
+
+  <p-card class="w-[50%]" header="Form in English">
+    <form
+      class="flex flex-col gap-2 mt-4"
+      (validate)="submitAction()"
+      novalidate
+    >
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <label class="" for="test1">Test 1</label>
+          <input
+            pInputText
+            name="test1"
+            [(ngModel)]="input1"
+            required
+            validation
+            class="w-full"
+          />
+        </p-floatlabel>
+        <small>Required validation field.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <label class="" for="test2">{{ "Test 2 with dynamic label" }}</label>
+          <input
+            pInputText
+            name="test2"
+            [(ngModel)]="input2"
+            required
+            validation
+            class="w-full"
+          />
+        </p-floatlabel>
+        <small>Required validation field with dynamic label.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <label class="" for="test3">{{ "Test 3" }}</label>
+          <input
+            pInputText
+            name="test3"
+            customName="Custom Test"
+            [(ngModel)]="input3"
+            required
+            validation
+            class="w-full"
+          />
+        </p-floatlabel>
+        <small>Required validation field with a custom name.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <label class="" for="test4">{{ "Test 4" }}</label>
+          <input
+            pInputText
+            name="test4"
+            customName="Custom Test 2"
+            [(ngModel)]="input4"
+            required
+            validation
+            class="w-full"
+          />
+        </p-floatlabel>
+        <small>Required validation field with a custom name.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <label class="" for="test5">{{ "Test 5" }}</label>
+          <input
+            pInputText
+            name="test5"
+            [(ngModel)]="input5"
+            required
+            requiredMessage="Custom Message"
+            validation
+            class="w-full"
+          />
+        </p-floatlabel>
+        <small>Required validation field with a custom message.</small>
+      </div>
+
+      <footer class="w-full" [style.textAlign]="'right'">
+        <p-button type="submit" severity="success" label="Validate"></p-button>
+      </footer>
+    </form>
+  </p-card>
+</section>

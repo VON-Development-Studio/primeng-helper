@@ -1,0 +1,25 @@
+<div class="ui-g ui-g-12 ui-g-nopad">
+  <label class="ui-g-4" for="prueba2">Prueba 1</label>
+  <span class="ui-g-8">
+    <input
+      pInputText
+      name="prueba2"
+      [(ngModel)]="attribute.input1es"
+      [required]="true"
+      validation
+    />
+  </span>
+</div>
+
+<div class="ui-g ui-g-12 ui-g-nopad">
+  <label class="ui-g-4" for="test2es">Prueba 2</label>
+  <span class="ui-g-8">
+    <p-select
+      [options]="testOptions"
+      [(ngModel)]="attribute.test2es"
+      name="test2es"
+      [required]="true"
+      validation
+    ></p-select>
+  </span>
+</div>

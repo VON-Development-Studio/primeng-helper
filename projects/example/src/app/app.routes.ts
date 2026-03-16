@@ -1,9 +1,32 @@
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  // RouterModule.forRoot([
-  //   { path: '', component: AppComponent },
-  //   { path: '**', redirectTo: '/' },
-  // ]),
+  {
+    path: 'autocomplete',
+    loadComponent: () =>
+      import('./form-validation/auto-complete/auto-complete.component').then(
+        (m) => m.AutoCompleteComponent
+      ),
+  },
+  {
+    path: 'datepicker',
+    loadComponent: () =>
+      import('./form-validation/date-picker/date-picker.component').then(
+        (m) => m.DatePickerComponent
+      ),
+  },
+  {
+    path: 'inputtext',
+    loadComponent: () =>
+      import('./form-validation/input-text/input-text.component').then(
+        (m) => m.InputTextComponent
+      ),
+  },
+  {
+    path: 'select',
+    loadComponent: () =>
+      import('./form-validation/select/select.component').then(
+        (m) => m.SelectComponent
+      ),
+  },
 ];

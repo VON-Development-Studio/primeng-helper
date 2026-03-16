@@ -60,14 +60,14 @@ export class VonFormValidateDirective {
 
   protected shouldIgnoreValidity = (elTagName: string) => {
     const tagName = `${elTagName}`.toLowerCase();
-    return tagName === 'p-dropdown';
+    return tagName === 'p-select';
   };
 
   protected getInputElement = (el: any) => {
     const tagName = `${el.tagName}`.toLowerCase();
     if (
-      tagName === 'p-datepicker' ||
       tagName === 'p-autocomplete' ||
+      tagName === 'p-datepicker' ||
       tagName === 'p-inputnumber' ||
       tagName === 'p-password'
     ) {

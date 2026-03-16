@@ -149,17 +149,16 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   protected verifyClassName = (el: HTMLElement): string => {
     const tagName = `${el.tagName}`.toLowerCase();
     switch (tagName) {
-      case 'input':
-        return 'field__input';
-      case 'p-datepicker':
-        return 'field__datepicker';
-
-      case 'textarea':
-        return 'field__textarea';
-      case 'p-dropdown':
-        return 'field__dropdown';
       case 'p-autocomplete':
         return 'field__autocomplete';
+      case 'p-datepicker':
+        return 'field__datepicker';
+      case 'input':
+        return 'field__input';
+      case 'p-select':
+        return 'field__select';
+      case 'textarea':
+        return 'field__textarea';
       case 'p-inputnumber':
         return 'field__input-number';
       case 'p-password':

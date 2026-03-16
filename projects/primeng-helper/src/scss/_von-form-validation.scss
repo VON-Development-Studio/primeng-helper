@@ -54,15 +54,9 @@ $form-error-shadow: #f00 !default;
   }
 }
 
-.field__dropdown {
-  display: flex;
-}
-
-.field__dropdown {
+.field__select {
   &.field__error {
-    .p-dropdown {
-      @include field-error-style;
-    }
+    @include field-error-style;
   }
 }
 
