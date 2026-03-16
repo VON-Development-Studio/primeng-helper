@@ -19,7 +19,7 @@ export class VonFormValidationDirective extends VonFormValidationBase {
   constructor(
     override element: ElementRef,
     override renderer: Renderer2,
-    override messageService: VonMessageService
+    override messageService: VonMessageService,
   ) {
     super();
   }
@@ -33,7 +33,7 @@ export class VonFormValidationDirective extends VonFormValidationBase {
     } else if (this.validator['isNotEqual']) {
       message = this.equalToMessage || this.messages.equalToMessage;
     } else if (this.validator['isCustom']) {
-      message = this.customMessage || this.messages.customMessage;
+      message = this.customValidationMessage || this.messages.customMessage;
     } else {
       valid = true;
     }
@@ -53,7 +53,7 @@ export class VonFormValidationDirective extends VonFormValidationBase {
   };
 
   protected validateRequired: ValidatorFn = (
-    value: any
+    value: any,
   ): ValidationErrors | null => {
     let validation = {};
     if (!this.required) {
@@ -67,14 +67,14 @@ export class VonFormValidationDirective extends VonFormValidationBase {
   };
 
   protected validateEqualTo: ValidatorFn = (
-    value: any
+    value: any,
   ): ValidationErrors | null => {
     if (!this.equalTo) {
       return {};
     }
 
     let validation = {};
-    const isNotEqual = this.equalIgnoreCase
+    const isNotEqual = this.equalToIgnoreCase
       ? `${value}`.toLowerCase() !== `${this.equalTo}`.toLowerCase()
       : value !== this.equalTo;
     if (isNotEqual) {
@@ -84,14 +84,14 @@ export class VonFormValidationDirective extends VonFormValidationBase {
   };
 
   protected validateCustomCondition: ValidatorFn = (
-    value: any
+    _: any,
   ): ValidationErrors | null => {
-    if (this.customValidator == null) {
+    if (this.customValidation == null) {
       return {};
     }
 
     let validation = {};
-    if (!this.customValidator) {
+    if (!this.customValidation) {
       validation = { isCustom: true };
     }
     return validation;

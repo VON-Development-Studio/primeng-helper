@@ -49,14 +49,13 @@ export class VonFormValidateDirective {
     }
   };
 
-  // TODO: RESET FORM...
-  // @HostListener('reset', ['$event'])
-  // onResetEvent = (e: any) => {
-  //   const elements = this.el.nativeElement.querySelectorAll('[validation]');
-  //   elements.forEach((el: HTMLElement) => {
-  //     el.dispatchEvent(new Event('cleanValidation'));
-  //   });
-  // };
+  @HostListener('reset', [])
+  onResetEvent = () => {
+    const elements = this.el.nativeElement.querySelectorAll('[validation]');
+    elements.forEach((el: HTMLElement) => {
+      el.dispatchEvent(new Event('cleanValidation'));
+    });
+  };
 
   protected shouldIgnoreValidity = (elTagName: string) => {
     const tagName = `${elTagName}`.toLowerCase();

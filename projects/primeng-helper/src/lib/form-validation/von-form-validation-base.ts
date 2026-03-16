@@ -10,8 +10,8 @@ import {
 } from '@angular/core';
 import { FormControl, ValidationErrors, Validator } from '@angular/forms';
 import { VonMessageService } from '../message/von-message.service';
-import { VonLocalizationModel } from '../models/von-localization.model';
 import { VALIDATION_MESSAGES } from '../utils/von-translations';
+import { VonLocalizationModel } from './models/von-localization.model';
 
 @Directive()
 export abstract class VonFormValidationBase implements OnInit, Validator {
@@ -21,14 +21,18 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   @Input() name?: string;
   @Input() customName?: string;
 
+  /* Required Section */
   @Input() required?: boolean | string;
-  @Input() requiredName?: string;
   @Input() requiredMessage?: string;
+
+  /* EqualTo Section */
   @Input() equalTo?: any;
-  @Input() equalIgnoreCase?: boolean;
+  @Input() equalToIgnoreCase?: boolean;
   @Input() equalToMessage?: string;
-  @Input() customValidator?: boolean;
-  @Input() customMessage?: string;
+
+  /* Custom Validation Section */
+  @Input() customValidation?: boolean;
+  @Input() customValidationMessage?: string;
 
   protected validator: ValidationErrors = {};
   protected message = '';
@@ -42,17 +46,15 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   constructor(
     protected element?: ElementRef,
     protected renderer?: Renderer2,
-    protected messageService?: VonMessageService
+    protected messageService?: VonMessageService,
   ) {}
 
   ngOnInit(): void {
     const $closestFormEl =
       this.element?.nativeElement.form ||
       this.getClosestForm(this.element?.nativeElement);
-    const isValidationEn = !$closestFormEl.hasAttribute('validation-es');
-    this.messages = isValidationEn
-      ? VALIDATION_MESSAGES.EN
-      : VALIDATION_MESSAGES.ES;
+
+    this.checkValidationMessages();
 
     if (this.required != null && this.required === '') {
       this.required = true;
@@ -69,12 +71,12 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
     this.renderer?.setAttribute(
       this.element?.nativeElement,
       'validation',
-      'true'
+      'true',
     );
 
     this.renderer?.addClass(
       this.element?.nativeElement,
-      this.verifyClassName(this.element?.nativeElement)
+      this.verifyClassName(this.element?.nativeElement),
     );
   }
 
@@ -84,9 +86,15 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
     return this.validator;
   }
 
+  @HostListener('cleanValidation') cleanValidation = () => {
+    this.renderer?.removeClass(this.element?.nativeElement, 'field__error');
+  };
+
   @HostListener('executeValidation') executeValidationEvent = () => {
+    this.checkValidationMessages();
+
     this.validator = this.getCustomValidators(this.ngModel);
-    const labelText = this.requiredName ?? this.getLabelText();
+    const labelText = this.getLabelText();
     const { message, valid } = this.verifyValidationMessage();
 
     if (!valid) {
@@ -94,11 +102,6 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
       this.messageService?.error(message.replace('${name}', labelText), {
         sticky: false,
       });
-      // this.appMessageService.addError(
-      //   message.replace('${name}', labelText),
-      //   null,
-      //   false
-      // );
     } else {
       this.renderer?.removeClass(this.element?.nativeElement, 'field__error');
     }
@@ -149,14 +152,14 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   protected verifyClassName = (el: HTMLElement): string => {
     const tagName = `${el.tagName}`.toLowerCase();
     switch (tagName) {
+      case 'p-select':
       case 'p-autocomplete':
         return 'field__autocomplete';
+      case 'p-calendar':
       case 'p-datepicker':
         return 'field__datepicker';
       case 'input':
         return 'field__input';
-      case 'p-select':
-        return 'field__select';
       case 'textarea':
         return 'field__textarea';
       case 'p-inputnumber':
@@ -167,5 +170,15 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
         return 'field__checkbox';
     }
     return 'field__no-defined';
+  };
+
+  private readonly checkValidationMessages = () => {
+    const $closestFormEl =
+      this.element?.nativeElement.form ||
+      this.getClosestForm(this.element?.nativeElement);
+    const isValidationEn = !$closestFormEl.hasAttribute('validation-es');
+    this.messages = isValidationEn
+      ? VALIDATION_MESSAGES.EN
+      : VALIDATION_MESSAGES.ES;
   };
 }
