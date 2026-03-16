@@ -1,5 +1,5 @@
-import { VonLocalizationModel } from "../models/von-localization.model";
-import { VonValidationMessagesModel } from "../models/von-validation-messages.model";
+import { VonLocalizationModel } from "../form-validation/models/von-localization.model";
+import { VonValidationMessagesModel } from "../form-validation/models/von-validation-messages.model";
 
 const VALIDATION_MESSAGES_EN: VonLocalizationModel = {
   requiredMessage: 'The field \'${name}\' is required',
