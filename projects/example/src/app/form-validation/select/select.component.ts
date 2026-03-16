@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import {
   VonFormValidateDirective,
   VonFormValidationDirective,
-  VonMessageService,
 } from '@von-ds/primeng-helper';
 import { SelectItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -25,7 +24,6 @@ import { SelectModule } from 'primeng/select';
     VonFormValidateDirective,
     VonFormValidationDirective,
   ],
-  providers: [VonMessageService],
 })
 export class SelectComponent {
   testOptions: SelectItem[] = [

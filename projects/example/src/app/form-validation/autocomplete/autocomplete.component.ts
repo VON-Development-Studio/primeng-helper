@@ -3,8 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { AppService } from '@example/app.service';
 import {
   VonFormValidateDirective,
-  VonFormValidationDirective,
-  VonMessageService,
+  VonFormValidationDirective
 } from '@von-ds/primeng-helper';
 import { AutoComplete } from 'primeng/autocomplete';
 import { Button } from 'primeng/button';
@@ -25,7 +24,6 @@ import { FloatLabel } from 'primeng/floatlabel';
     VonFormValidateDirective,
     VonFormValidationDirective,
   ],
-  providers: [VonMessageService],
 })
 export class AutoCompleteComponent {
   results: string[] = [];

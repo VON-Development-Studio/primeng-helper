@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import { MenuItem, MessageService } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { ToastModule } from 'primeng/toast';
@@ -23,7 +23,6 @@ import { AppService } from './app.service';
     ToastModule,
     ToggleSwitch,
   ],
-  providers: [MessageService],
 })
 export class AppComponent {
   title = 'example';

@@ -5,7 +5,6 @@ import { AppService } from '@example/app.service';
 import {
   VonFormValidateDirective,
   VonFormValidationDirective,
-  VonMessageService,
 } from '@von-ds/primeng-helper';
 import { Button } from 'primeng/button';
 import { Card } from 'primeng/card';
@@ -27,7 +26,6 @@ import { FloatLabel } from 'primeng/floatlabel';
     VonFormValidateDirective,
     VonFormValidationDirective,
   ],
-  providers: [VonMessageService],
 })
 export class DatePickerComponent {
   test1 = null;

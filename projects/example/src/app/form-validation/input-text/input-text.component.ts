@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import {
   VonFormValidateDirective,
   VonFormValidationDirective,
-  VonMessageService,
 } from '@von-ds/primeng-helper';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -24,7 +23,6 @@ import { InputTextModule } from 'primeng/inputtext';
     VonFormValidateDirective,
     VonFormValidationDirective,
   ],
-  providers: [VonMessageService],
 })
 export class InputTextComponent {
   input1es?: string;
