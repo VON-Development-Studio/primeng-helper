@@ -11,7 +11,7 @@ export const routes: Routes = [
   {
     path: 'datepicker',
     loadComponent: () =>
-      import('./form-validation/date-picker/date-picker.component').then(
+      import('./form-validation/datepicker/datepicker.component').then(
         (m) => m.DatePickerComponent
       ),
   },

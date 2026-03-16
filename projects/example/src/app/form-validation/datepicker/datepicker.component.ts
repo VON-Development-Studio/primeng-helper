@@ -1,0 +1,48 @@
+import { DatePipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { AppService } from '@example/app.service';
+import {
+  VonFormValidateDirective,
+  VonFormValidationDirective,
+  VonMessageService,
+} from '@von-ds/primeng-helper';
+import { Button } from 'primeng/button';
+import { Card } from 'primeng/card';
+import { DatePicker } from 'primeng/datepicker';
+import { FloatLabel } from 'primeng/floatlabel';
+
+@Component({
+  selector: 'datepicker-component',
+  templateUrl: './datepicker.component.html',
+  imports: [
+    FormsModule,
+    DatePipe,
+
+    Button,
+    Card,
+    DatePicker,
+    FloatLabel,
+
+    VonFormValidateDirective,
+    VonFormValidationDirective,
+  ],
+  providers: [VonMessageService],
+})
+export class DatePickerComponent {
+  test1 = null;
+  test2 = null;
+  test3 = null;
+  test3Compare = new Date();
+
+  customMessage = 'This is a custom message for required validation';
+
+  private readonly appService = inject(AppService);
+  readonly isEnglish = this.appService.isEnglish;
+
+  constructor() {}
+
+  submitAction = () => {
+    console.log('[DEV] Success');
+  };
+}

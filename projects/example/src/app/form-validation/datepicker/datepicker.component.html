@@ -1,0 +1,98 @@
+<section class="flex flex-wrap gap-4 py-4">
+  <h2 class="w-full">Form in {{ isEnglish() ? "English" : "Spanish" }}</h2>
+
+  <p-card class="w-[calc(50%-(var(--spacing)*4))]" header="Required forms">
+    <form
+      #requiredForm
+      class="flex flex-col gap-4 mt-4"
+      (validate)="submitAction()"
+      novalidate
+      [attr.validation-es]="isEnglish() ? undefined : true"
+    >
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-datepicker
+            name="test1"
+            [(ngModel)]="test1"
+            [showIcon]="true"
+            [showClear]="true"
+            [readonlyInput]="true"
+            class="w-full"
+            inputStyleClass="w-full"
+            validation
+            required
+          />
+          <label for="test1">Test 1</label>
+        </p-floatlabel>
+        <small>Required validation field.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <label for="test2">Test 2</label>
+        <p-datepicker
+          name="test2"
+          [(ngModel)]="test2"
+          [showIcon]="true"
+          [showClear]="true"
+          [readonlyInput]="true"
+          [inline]="true"
+          class="w-full"
+          inputStyleClass="w-full"
+          validation
+          required
+        />
+        <small>Required validation field as <i>inline</i> type.</small>
+      </div>
+
+      <footer class="inline-flex items-center justify-end gap-4 w-full">
+        <p-button
+          type="button"
+          severity="secondary"
+          label="Reset"
+          (onClick)="requiredForm.reset()"
+        />
+        <p-button type="submit" severity="success" label="Validate" />
+      </footer>
+    </form>
+  </p-card>
+
+  <p-card class="w-[calc(50%-(var(--spacing)*4))]" header="Custom forms">
+    <form
+      #equalToForm
+      class="flex flex-col gap-4 mt-4"
+      (validate)="submitAction()"
+      novalidate
+      [attr.validation-es]="isEnglish() ? undefined : true"
+    >
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <p-datepicker
+            name="test3"
+            [(ngModel)]="test3"
+            [showIcon]="true"
+            [showClear]="true"
+            [readonlyInput]="true"
+            class="w-full"
+            inputStyleClass="w-full"
+            validation
+            [customValidation]="
+              (test3 | date: 'ddMMyyyy') === (test3Compare | date: 'ddMMyyyy')
+            "
+          />
+          <label for="test3">Test 3</label>
+        </p-floatlabel>
+        <small>Custom validation field to match <i>today</i>'s date.</small>
+      </div>
+
+      <footer class="inline-flex items-center justify-end gap-4 w-full">
+        <p-button
+          type="button"
+          severity="secondary"
+          label="Reset"
+          (onClick)="equalToForm.reset()"
+        />
+        <p-button type="submit" severity="success" label="Validate" />
+      </footer>
+    </form>
+  </p-card>
+</section>
