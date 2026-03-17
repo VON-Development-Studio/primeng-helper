@@ -38,7 +38,7 @@
         "projects/primeng-helper/src/public-api.ts"
       ],
       "@von-ds/primeng-helper/*": [
-        "projects/primeng-helper/src/*"
+        "projects/primeng-helper/src/lib/*"
       ]
     }
   },
