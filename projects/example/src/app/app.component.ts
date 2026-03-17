@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { VonMessageService } from '@von-ds/primeng-helper';
 import { VonToastComponent } from '@von-ds/primeng-helper/components/toast';
 import { MenuItem } from 'primeng/api';
 import { Menubar } from 'primeng/menubar';
@@ -24,11 +25,13 @@ import { AppService } from './app.service';
     VonToastComponent,
   ],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'example';
 
   isEnglish = true;
   private readonly appService = inject(AppService);
+
+  private readonly messageService = inject(VonMessageService);
 
   navigationBar: MenuItem[] = [
     {
@@ -61,6 +64,15 @@ export class AppComponent {
       label: 'Confirmation Dialog',
     },
   ];
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.messageService.info('Welcome');
+      this.messageService.info('PrimeNG components helper', {
+        summary: 'VON Development Studio',
+      });
+    }, 500);
+  }
 
   handleLanguageChange = () => {
     this.appService.changeLanguage();

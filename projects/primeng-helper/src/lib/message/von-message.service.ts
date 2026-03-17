@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { MessageService, ToastMessageOptions } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class VonMessageService {
-  constructor(protected messageService: MessageService) {}
+  protected readonly messageService = inject(MessageService);
 
   /**
    * Wrapper to call PrimeNG MessageService with an specific severity.
@@ -16,7 +16,7 @@ export class VonMessageService {
   protected add = (
     type: string,
     message: string,
-    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>
+    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>,
   ) => {
     this.messageService.add({
       severity: type,
@@ -40,9 +40,9 @@ export class VonMessageService {
    */
   info = (
     message: string,
-    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>
+    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>,
   ) => {
-    this.add('info', message, { ...extraParams, icon: 'pi-info-circle' });
+    this.add('info', message, { ...extraParams, icon: 'pi pi-info-circle' });
   };
 
   /**
@@ -53,9 +53,9 @@ export class VonMessageService {
    */
   success = (
     message: string,
-    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>
+    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>,
   ) => {
-    this.add('success', message, { ...extraParams, icon: 'pi-check' });
+    this.add('success', message, { ...extraParams, icon: 'pi pi-check' });
   };
 
   /**
@@ -66,11 +66,11 @@ export class VonMessageService {
    */
   warning = (
     message: string,
-    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>
+    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>,
   ) => {
     this.add('warn', message, {
       ...extraParams,
-      icon: 'pi-exclamation-triangle',
+      icon: 'pi pi-exclamation-triangle',
     });
   };
 
@@ -82,9 +82,9 @@ export class VonMessageService {
    */
   error = (
     message: string,
-    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>
+    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>,
   ) => {
-    this.add('error', message, { ...extraParams, icon: 'pi-times-circle' });
+    this.add('error', message, { ...extraParams, icon: 'pi pi-times-circle' });
   };
 
   // ****
@@ -102,7 +102,7 @@ export class VonMessageService {
    */
   addSuccess = (
     message: string,
-    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>
+    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>,
   ) => {
     this.success(message, extraParams);
   };
@@ -116,7 +116,7 @@ export class VonMessageService {
    */
   addInfo = (
     message: string,
-    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>
+    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>,
   ) => {
     this.info(message, extraParams);
   };
@@ -130,7 +130,7 @@ export class VonMessageService {
    */
   addWarning = (
     message: string,
-    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>
+    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>,
   ) => {
     this.warning(message, extraParams);
   };
@@ -144,7 +144,7 @@ export class VonMessageService {
    */
   addError = (
     message: string,
-    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>
+    extraParams?: Omit<ToastMessageOptions, 'severity' | 'detail'>,
   ) => {
     this.error(message, extraParams);
   };
