@@ -2,6 +2,7 @@
  * Public API Surface of primeng-helper
  */
 
+export * from './lib/components/toast';
 export * from './lib/form-validation/von-form-validate.directive';
 export * from './lib/form-validation/von-form-validation-base';
 export * from './lib/form-validation/von-form-validation.directive';

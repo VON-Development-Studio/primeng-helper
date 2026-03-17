@@ -1,10 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { VonToastComponent } from '@von-ds/primeng-helper/components/toast';
 import { MenuItem } from 'primeng/api';
-import { ButtonModule } from 'primeng/button';
-import { MenubarModule } from 'primeng/menubar';
-import { ToastModule } from 'primeng/toast';
+import { Menubar } from 'primeng/menubar';
 import { ToggleSwitch } from 'primeng/toggleswitch';
 import { AppService } from './app.service';
 
@@ -18,10 +17,11 @@ import { AppService } from './app.service';
     RouterOutlet,
 
     // PrimeNG
-    ButtonModule,
-    MenubarModule,
-    ToastModule,
+    Menubar,
     ToggleSwitch,
+
+    // VON
+    VonToastComponent,
   ],
 })
 export class AppComponent {
