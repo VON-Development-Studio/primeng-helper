@@ -3,13 +3,13 @@ import { VonValidationMessagesModel } from "../form-validation/models/von-valida
 
 const VALIDATION_MESSAGES_EN: VonLocalizationModel = {
   requiredMessage: 'The field \'${name}\' is required',
-  equalToMessage: 'The field \'${name}\' is not equal',
+  equalToMessage: 'The field \'${name}\' is not equal to \'${equalTo}\'',
   customMessage: "The field '${name}' is not valid"
 };
 
 const VALIDATION_MESSAGES_ES: VonLocalizationModel = {
   requiredMessage: 'El campo \'${name}\' es requerido',
-  equalToMessage: 'El campo \'${name}\' no es igual',
+  equalToMessage: 'El campo \'${name}\' no es igual a \'${equalTo}\'',
   customMessage: "El campo '${name}' no es válido"
 };
 

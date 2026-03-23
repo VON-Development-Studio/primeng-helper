@@ -23,6 +23,11 @@ export class VonFormValidationDirective extends VonFormValidationBase {
       message = this.requiredMessage || this.messages.requiredMessage;
     } else if (this.validator['isNotEqual']) {
       message = this.equalToMessage || this.messages.equalToMessage;
+      if (this.equalToObject) {
+        message = message.replace('${equalTo}', JSON.stringify(this.equalTo));
+      } else {
+        message = message.replace('${equalTo}', this.equalTo);
+      }
     } else if (this.validator['isCustom']) {
       message = this.customValidationMessage || this.messages.customMessage;
     } else {

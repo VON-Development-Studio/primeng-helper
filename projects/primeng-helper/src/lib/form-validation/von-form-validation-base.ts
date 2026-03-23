@@ -29,6 +29,7 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   /* EqualTo Section */
   @Input() equalTo?: any;
   @Input() equalToIgnoreCase?: boolean;
+  @Input() equalToObject?: boolean = false;
   @Input() equalToMessage?: string;
 
   /* Custom Validation Section */
@@ -152,7 +153,6 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   protected verifyClassName = (el: HTMLElement): string => {
     const tagName = `${el.tagName}`.toLowerCase();
     switch (tagName) {
-      case 'p-select':
       case 'p-autocomplete':
         return 'field__autocomplete';
       case 'p-calendar':
@@ -168,6 +168,8 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
         return 'field__password';
       case 'p-checkbox':
         return 'field__checkbox';
+      case 'p-select':
+        return 'field__select';
     }
     return 'field__no-defined';
   };
