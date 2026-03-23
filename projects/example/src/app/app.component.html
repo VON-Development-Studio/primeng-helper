@@ -1,7 +1,9 @@
 <main>
   <header>
     <section>
-      <h1>VON Development Studio</h1>
+      <h1>
+        <a [routerLink]="['/']">VON Development Studio</a>
+      </h1>
       <h2>PrimeNG Helper</h2>
     </section>
 
@@ -19,7 +21,7 @@
 
   <von-toast />
 
-  <div class="screen-wrapper">
+  <div class="screen-wrapper mt-4">
     <router-outlet />
   </div>
 </main>

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkWithHref, RouterOutlet } from '@angular/router';
 import { VonMessageService } from '@von-ds/primeng-helper';
 import { VonToastComponent } from '@von-ds/primeng-helper/components/toast';
 import { MenuItem } from 'primeng/api';
@@ -16,6 +16,7 @@ import { AppService } from './app.service';
     // Angular
     FormsModule,
     RouterOutlet,
+    RouterLink,
 
     // PrimeNG
     Menubar,
@@ -23,9 +24,10 @@ import { AppService } from './app.service';
 
     // VON
     VonToastComponent,
+    RouterLinkWithHref,
   ],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'example';
 
   isEnglish = true;
@@ -34,6 +36,15 @@ export class AppComponent implements OnInit {
   private readonly messageService = inject(VonMessageService);
 
   navigationBar: MenuItem[] = [
+    {
+      label: 'Custom Components',
+      items: [
+        {
+          url: '/custom-components/messages-and-toasts',
+          label: 'Messages & Toasts',
+        },
+      ],
+    },
     {
       label: 'Form Validation',
       items: [
@@ -64,15 +75,6 @@ export class AppComponent implements OnInit {
       label: 'Confirmation Dialog',
     },
   ];
-
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.messageService.info('Welcome');
-      this.messageService.info('PrimeNG components helper', {
-        summary: 'VON Development Studio',
-      });
-    }, 500);
-  }
 
   handleLanguageChange = () => {
     this.appService.changeLanguage();

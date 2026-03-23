@@ -1,0 +1,61 @@
+<section class="flex flex-col gap-4">
+  <h3 class="text-xl font-bold underline">Messages section</h3>
+
+  <span>
+    Here you can see how to use the <code class="text-primary font-bold">VonMessageService</code> to show
+    messages in your application. Click the buttons below to see different types
+    of messages.
+  </span>
+
+  <div class="inline-flex flex-wrap gap-4">
+    <p-button label="Info" severity="info" (onClick)="showInfoMessage()" />
+
+    <p-button
+      label="Success"
+      severity="success"
+      (onClick)="showSuccessMessage()"
+    />
+
+    <p-button
+      label="Warning"
+      severity="warn"
+      (onClick)="showWarningMessage()"
+    />
+
+    <p-button label="Error" severity="danger" (onClick)="showErrorMessage()" />
+  </div>
+
+  <div class="inline-flex flex-wrap gap-4">
+    <p-button
+      label="Info (STICKY)"
+      severity="info"
+      (onClick)="showInfoMessage(true)"
+    />
+
+    <p-button
+      label="Success (STICKY)"
+      severity="success"
+      (onClick)="showSuccessMessage(true)"
+    />
+
+    <p-button
+      label="Warning (STICKY)"
+      severity="warn"
+      (onClick)="showWarningMessage(true)"
+    />
+
+    <p-button
+      label="Error (STICKY)"
+      severity="danger"
+      (onClick)="showErrorMessage(true)"
+    />
+  </div>
+
+  <div class="inline-flex flex-wrap gap-4">
+    <p-button
+      label="Clean all"
+      severity="secondary"
+      (onClick)="cleanMessages()"
+    />
+  </div>
+</section>
