@@ -33,8 +33,6 @@ export class AppComponent {
   isEnglish = true;
   private readonly appService = inject(AppService);
 
-  private readonly messageService = inject(VonMessageService);
-
   navigationBar: MenuItem[] = [
     {
       label: 'Custom Components',
@@ -49,30 +47,22 @@ export class AppComponent {
       label: 'Form Validation',
       items: [
         {
-          url: '/autocomplete',
+          url: '/form-validation/autocomplete',
           label: 'AutoComplete',
         },
         {
-          url: '/datepicker',
+          url: '/form-validation/datepicker',
           label: 'DatePicker',
         },
         {
-          url: '/inputtext',
+          url: '/form-validation/inputtext',
           label: 'InputText',
         },
         {
-          url: '/select',
+          url: '/form-validation/select',
           label: 'Select',
         },
-        {
-          url: '/complex',
-          label: 'Complex',
-        },
       ],
-    },
-    {
-      url: '/confirmation-dialog',
-      label: 'Confirmation Dialog',
     },
   ];
 

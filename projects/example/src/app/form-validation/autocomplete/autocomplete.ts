@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { AppService } from '@example/app.service';
 import {
   VonFormValidateDirective,
-  VonFormValidationDirective
+  VonFormValidationDirective,
 } from '@von-ds/primeng-helper';
 import { AutoComplete } from 'primeng/autocomplete';
 import { Button } from 'primeng/button';
@@ -12,7 +12,7 @@ import { FloatLabel } from 'primeng/floatlabel';
 
 @Component({
   selector: 'autocomplete-component',
-  templateUrl: './autocomplete.component.html',
+  templateUrl: './autocomplete.html',
   imports: [
     FormsModule,
 
@@ -46,12 +46,11 @@ export class AutoCompleteComponent {
   test12?: string;
   test13?: string;
 
-  customMessage = 'This is a custom message for required validation';
+  customMessage =
+    'This is a custom message for required/equal/custom validation';
 
   private readonly appService = inject(AppService);
   readonly isEnglish = this.appService.isEnglish;
-
-  constructor() {}
 
   submitAction = () => {
     console.log('[DEV] Success');

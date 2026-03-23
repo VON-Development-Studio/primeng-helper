@@ -13,7 +13,7 @@ import { FloatLabel } from 'primeng/floatlabel';
 
 @Component({
   selector: 'datepicker-component',
-  templateUrl: './datepicker.component.html',
+  templateUrl: './datepicker.html',
   imports: [
     FormsModule,
     DatePipe,
@@ -33,12 +33,11 @@ export class DatePickerComponent {
   test3 = null;
   test3Compare = new Date();
 
-  customMessage = 'This is a custom message for required validation';
+  customMessage =
+    'This is a custom message for required/equal/custom validation';
 
   private readonly appService = inject(AppService);
   readonly isEnglish = this.appService.isEnglish;
-
-  constructor() {}
 
   submitAction = () => {
     console.log('[DEV] Success');

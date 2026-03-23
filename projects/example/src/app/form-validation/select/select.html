@@ -1,6 +1,4 @@
 <section class="flex flex-wrap gap-4 py-4">
-  <h2 class="w-full">Form in {{ isEnglish() ? "English" : "Spanish" }}</h2>
-
   <p-card class="w-[calc(50%-(var(--spacing)*4))]" header="Required forms">
     <form
       #requiredForm
@@ -11,14 +9,11 @@
     >
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test1"
             [(ngModel)]="test1"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
             required
           />
@@ -29,14 +24,11 @@
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test2"
             [(ngModel)]="test2"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
             required
           />
@@ -46,14 +38,11 @@
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test3"
             [(ngModel)]="test3"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
             required
             [customName]="'Test 3 Label'"
@@ -64,14 +53,11 @@
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test4"
             [(ngModel)]="test4"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
             required
             [requiredMessage]="customMessage"
@@ -102,95 +88,80 @@
     >
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test5"
             [(ngModel)]="test5"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
-            equalTo="a [2]"
+            equalTo="op1"
           />
           <label for="test5">Test 5</label>
         </p-floatlabel>
-        <small>Equal to "a [2]" validation field.</small>
+        <small>Equal to "test" validation field.</small>
       </div>
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test6"
             [(ngModel)]="test6"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
-            equalTo="A [2]"
+            equalTo="op1"
             [equalToIgnoreCase]="true"
           />
           <label for="test6">Test 6</label>
         </p-floatlabel>
-        <small>Equal to "A [2]" validation field ignore case.</small>
+        <small>Equal to "Test" validation field ignore case.</small>
       </div>
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test7"
             [(ngModel)]="test7"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
-            equalTo="A [2]"
+            equalTo="OP1"
             [equalToIgnoreCase]="true"
           />
         </p-floatlabel>
-        <small>Equal to "A [2]" validation field without label.</small>
+        <small>Equal to "Test" validation field without label.</small>
       </div>
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test8"
             [(ngModel)]="test8"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
             [customName]="'Test 8 Label'"
-            equalTo="A [2]"
+            equalTo="Op1"
             [equalToIgnoreCase]="true"
           />
         </p-floatlabel>
-        <small>Equal to "A [2]" validation field with custom label.</small>
+        <small>Equal to "Test" validation field with custom label.</small>
       </div>
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test9"
             [(ngModel)]="test9"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
-            equalTo="A [2]"
+            equalTo="Op1"
             [equalToIgnoreCase]="true"
             [equalToMessage]="customMessage"
           />
         </p-floatlabel>
-        <small>Equal to "A [2]" validation field with custom message.</small>
+        <small>Equal to "Test" validation field with custom message.</small>
       </div>
 
       <footer class="inline-flex items-center justify-end gap-4 w-full">
@@ -215,32 +186,26 @@
     >
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test10"
             [(ngModel)]="test10"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
-            [customValidation]="test10 === 'custom [0]'"
+            [customValidation]="test10 === 'op1'"
           />
           <label for="test10">Test 10</label>
         </p-floatlabel>
-        <small>Custom validation field (field equal to "custom [0]").</small>
+        <small>Custom validation field (field equal to "Test").</small>
       </div>
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test11"
             [(ngModel)]="test11"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
             [customValidation]="false"
           />
@@ -250,14 +215,11 @@
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test12"
             [(ngModel)]="test12"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
             [customValidation]="false"
             [customName]="'Test 12 Label'"
@@ -270,14 +232,11 @@
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <p-autocomplete
+          <p-select
+            [options]="testOptions"
             name="test13"
             [(ngModel)]="test13"
-            [suggestions]="results"
-            (completeMethod)="search($event.query)"
             class="w-full"
-            inputStyleClass="w-full"
-            [forceSelection]="true"
             validation
             [customValidation]="false"
             [customValidationMessage]="customMessage"

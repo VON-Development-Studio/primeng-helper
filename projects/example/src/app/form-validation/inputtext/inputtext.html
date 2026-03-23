@@ -1,0 +1,261 @@
+<section class="flex flex-wrap gap-4 py-4">
+  <p-card class="w-[calc(50%-(var(--spacing)*4))]" header="Required forms">
+    <form
+      #requiredForm
+      class="flex flex-col gap-4 mt-4"
+      (validate)="submitAction()"
+      novalidate
+      [attr.validation-es]="isEnglish() ? undefined : true"
+    >
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test1"
+            [(ngModel)]="test1"
+            class="w-full"
+            validation
+            required
+          />
+          <label for="test1">Test 1</label>
+        </p-floatlabel>
+        <small>Required validation field.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test2"
+            [(ngModel)]="test2"
+            class="w-full"
+            validation
+            required
+          />
+        </p-floatlabel>
+        <small>Required validation field without label.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test3"
+            [(ngModel)]="test3"
+            class="w-full"
+            validation
+            required
+            [customName]="'Test 3 Label'"
+          />
+        </p-floatlabel>
+        <small>Required validation field with manual label.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test4"
+            [(ngModel)]="test4"
+            class="w-full"
+            validation
+            required
+            [requiredMessage]="customMessage"
+          />
+        </p-floatlabel>
+        <small>Required validation field with custom message.</small>
+      </div>
+
+      <footer class="inline-flex items-center justify-end gap-4 w-full">
+        <p-button
+          type="button"
+          severity="secondary"
+          label="Reset"
+          (onClick)="requiredForm.reset()"
+        />
+        <p-button type="submit" severity="success" label="Validate" />
+      </footer>
+    </form>
+  </p-card>
+
+  <p-card class="w-[calc(50%-(var(--spacing)*4))]" header="Equal to forms">
+    <form
+      #equalToForm
+      class="flex flex-col gap-2 mt-4"
+      (validate)="submitAction()"
+      novalidate
+      [attr.validation-es]="isEnglish() ? undefined : true"
+    >
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test5"
+            [(ngModel)]="test5"
+            class="w-full"
+            validation
+            equalTo="test"
+          />
+          <label for="test5">Test 5</label>
+        </p-floatlabel>
+        <small>Equal to "test" validation field.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test6"
+            [(ngModel)]="test6"
+            class="w-full"
+            validation
+            equalTo="Test"
+            [equalToIgnoreCase]="true"
+          />
+          <label for="test6">Test 6</label>
+        </p-floatlabel>
+        <small>Equal to "Test" validation field ignore case.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test7"
+            [(ngModel)]="test7"
+            class="w-full"
+            validation
+            equalTo="Test"
+            [equalToIgnoreCase]="true"
+          />
+        </p-floatlabel>
+        <small>Equal to "Test" validation field without label.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test8"
+            [(ngModel)]="test8"
+            class="w-full"
+            validation
+            [customName]="'Test 8 Label'"
+            equalTo="Test"
+            [equalToIgnoreCase]="true"
+          />
+        </p-floatlabel>
+        <small>Equal to "Test" validation field with custom label.</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test9"
+            [(ngModel)]="test9"
+            class="w-full"
+            validation
+            equalTo="Test"
+            [equalToIgnoreCase]="true"
+            [equalToMessage]="customMessage"
+          />
+        </p-floatlabel>
+        <small>Equal to "Test" validation field with custom message.</small>
+      </div>
+
+      <footer class="inline-flex items-center justify-end gap-4 w-full">
+        <p-button
+          type="button"
+          severity="secondary"
+          label="Reset"
+          (onClick)="equalToForm.reset()"
+        />
+        <p-button type="submit" severity="success" label="Validate" />
+      </footer>
+    </form>
+  </p-card>
+
+  <p-card class="w-[calc(50%-(var(--spacing)*4))]" header="Custom forms">
+    <form
+      #customForm
+      class="flex flex-col gap-2 mt-4"
+      (validate)="submitAction()"
+      novalidate
+      [attr.validation-es]="isEnglish() ? undefined : true"
+    >
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test10"
+            [(ngModel)]="test10"
+            class="w-full"
+            validation
+            [customValidation]="test10 === 'Test'"
+          />
+          <label for="test10">Test 10</label>
+        </p-floatlabel>
+        <small>Custom validation field (field equal to "Test").</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test11"
+            [(ngModel)]="test11"
+            class="w-full"
+            validation
+            [customValidation]="false"
+          />
+        </p-floatlabel>
+        <small>Custom validation field without label (always false).</small>
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test12"
+            [(ngModel)]="test12"
+            class="w-full"
+            validation
+            [customValidation]="false"
+            [customName]="'Test 12 Label'"
+          />
+        </p-floatlabel>
+        <small
+          >Required validation field with manual label (always false).</small
+        >
+      </div>
+
+      <div class="w-full inline-flex flex-col gap-2">
+        <p-floatlabel class="w-full" variant="on">
+          <input
+            pInputText
+            name="test13"
+            [(ngModel)]="test13"
+            class="w-full"
+            validation
+            [customValidation]="false"
+            [customValidationMessage]="customMessage"
+          />
+        </p-floatlabel>
+        <small
+          >Required validation field with custom message (always false).</small
+        >
+      </div>
+
+      <footer class="inline-flex items-center justify-end gap-4 w-full">
+        <p-button
+          type="button"
+          severity="secondary"
+          label="Reset"
+          (onClick)="customForm.reset()"
+        />
+        <p-button type="submit" severity="success" label="Validate" />
+      </footer>
+    </form>
+  </p-card>
+</section>
