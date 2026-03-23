@@ -28,7 +28,7 @@ export class VonMessageService {
   /**
    * Removes all messages in queue;
    */
-  protected closeAll = () => {
+  clearAll = () => {
     this.messageService.clear();
   };
 
