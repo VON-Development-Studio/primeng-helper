@@ -6,6 +6,11 @@ const routes: Routes = [
     loadComponent: () =>
       import('./messages/messages').then((m) => m.MessagesComponent),
   },
+  {
+    path: 'confirmation',
+    loadComponent: () =>
+      import('./confirmation/confirmation').then((m) => m.ConfirmationComponent),
+  },
 ];
 
 export default routes;

@@ -1,0 +1,31 @@
+<section class="flex flex-wrap gap-4">
+  <p-button
+    severity="primary"
+    (click)="openDialogWithCustomHeader()"
+    label="Custom header"
+  />
+
+  <p-button
+    severity="primary"
+    (click)="openDialogWithCustomMessage()"
+    label="Custom message"
+  />
+
+  <p-button
+    severity="primary"
+    (click)="openDialogWithCustomButtons()"
+    label="Custom buttons"
+  />
+</section>
+
+<div class="my-4">
+  <hr />
+</div>
+
+<section class="flex flex-wrap gap-4">
+  <p-button
+    severity="danger"
+    (click)="openDialogWithError()"
+    label="Dialog with error"
+  />
+</section>

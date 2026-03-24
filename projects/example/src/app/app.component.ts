@@ -1,9 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkWithHref, RouterOutlet } from '@angular/router';
-import { VonMessageService } from '@von-ds/primeng-helper';
+import { VonConfirmDialogComponent } from '@von-ds/primeng-helper/components/confirmdialog';
 import { VonToastComponent } from '@von-ds/primeng-helper/components/toast';
-import { MenuItem } from 'primeng/api';
+import { ConfirmationService, MenuItem } from 'primeng/api';
 import { Menubar } from 'primeng/menubar';
 import { ToggleSwitch } from 'primeng/toggleswitch';
 import { AppService } from './app.service';
@@ -17,6 +17,7 @@ import { AppService } from './app.service';
     FormsModule,
     RouterOutlet,
     RouterLink,
+    RouterLinkWithHref,
 
     // PrimeNG
     Menubar,
@@ -24,8 +25,9 @@ import { AppService } from './app.service';
 
     // VON
     VonToastComponent,
-    RouterLinkWithHref,
+    VonConfirmDialogComponent,
   ],
+  providers: [ConfirmationService],
 })
 export class AppComponent {
   title = 'example';
@@ -40,6 +42,10 @@ export class AppComponent {
         {
           url: '/custom-components/messages-and-toasts',
           label: 'Messages & Toasts',
+        },
+        {
+          url: '/custom-components/confirmation',
+          label: 'Confirmation Dialog',
         },
       ],
     },
