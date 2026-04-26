@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Button } from 'primeng/button';
 import { ConfirmDialog } from 'primeng/confirmdialog';
@@ -8,8 +7,6 @@ import { finalize, Observable } from 'rxjs';
   selector: 'von-confirm-dialog',
   templateUrl: './confirmdialog.html',
   imports: [
-    CommonModule,
-
     // PrimeNG
     Button,
     ConfirmDialog,

@@ -1,23 +1,23 @@
 {
   "name": "@von-development-studio/primeng-helper",
-  "version": "20.3.1",
+  "version": "21.0.0",
   "description": "PrimeNG Helper wrapper.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/VON-Development-Studio/primeng-helper"
+    "url": "git+https://github.com/VON-Development-Studio/primeng-helper.git"
   },
   "keywords": [
     "angular",
-    "angular 20",
+    "angular 21",
     "primeng"
   ],
   "author": "Luis García Castro",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^20.3.0",
-    "@angular/core": "^20.3.0",
-    "primeng": "~20.3.0",
-    "tailwindcss": "^4.1.18",
+    "@angular/common": "^21.2.10",
+    "@angular/core": "^21.2.10",
+    "primeng": "~21.1.6",
+    "tailwindcss": "^4.2.4",
     "tailwindcss-primeui": "^0.6.1"
   },
   "dependencies": {
