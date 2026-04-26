@@ -1,0 +1,27 @@
+<section class="flex flex-wrap py-4">
+  <p-card class="w-full" header="Required forms">
+    <form
+      #requiredForm
+      class="flex flex-col gap-4 mt-4"
+      (validate)="submitAction(testRequired)"
+      novalidate
+      [attr.validation-es]="isEnglish() ? undefined : true"
+    >
+      <div
+        class="w-full inline-flex flex-wrap gap-4"
+        complex-internal-component
+        [(form)]="testRequired"
+      ></div>
+
+      <footer class="inline-flex items-center justify-end gap-4 w-full">
+        <p-button
+          type="button"
+          severity="secondary"
+          label="Reset"
+          (onClick)="requiredForm.reset()"
+        />
+        <p-button type="submit" severity="success" label="Validate" />
+      </footer>
+    </form>
+  </p-card>
+</section>

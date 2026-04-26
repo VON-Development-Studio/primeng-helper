@@ -1,0 +1,131 @@
+<div class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-col gap-2 mt-4">
+  <p-floatlabel class="w-full" variant="on">
+    <input
+      pInputText
+      name="testInput"
+      [(ngModel)]="form.inputField"
+      class="w-full"
+      validation
+      required
+    />
+    <label for="testInput">Input Test</label>
+  </p-floatlabel>
+</div>
+
+<div class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-col gap-2 mt-4">
+  <p-floatlabel class="w-full" variant="on">
+    <p-datepicker
+      name="testDatepicker"
+      [(ngModel)]="form.datepicker"
+      [showIcon]="true"
+      [showClear]="true"
+      [readonlyInput]="true"
+      class="w-full"
+      inputStyleClass="w-full"
+      validation
+      required
+    />
+    <label for="testDatepicker">Datepicker Test</label>
+  </p-floatlabel>
+</div>
+
+<div class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-col gap-2 mt-4">
+  <p-floatlabel class="w-full" variant="on">
+    <p-select
+      [options]="testOptions"
+      name="testSelect"
+      [(ngModel)]="form.select"
+      [showClear]="true"
+      class="w-full"
+      validation
+      required
+    />
+    <label for="testSelect">Select Test</label>
+  </p-floatlabel>
+</div>
+
+<div class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-col gap-2 mt-4">
+  <p-floatlabel class="w-full" variant="on">
+    <p-autocomplete
+      name="testAutocomplete"
+      [(ngModel)]="form.autocomplete"
+      [suggestions]="results"
+      (completeMethod)="autoCompleteSearch($event.query)"
+      [showClear]="true"
+      class="w-full"
+      inputStyleClass="w-full"
+      [forceSelection]="true"
+      validation
+      required
+    />
+    <label for="testAutocomplete">Autocomplete Test</label>
+  </p-floatlabel>
+</div>
+
+<div
+  class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-wrap items-start justify-start gap-2 mt-4"
+>
+  <label for="testCheckbox">Checkbox Test</label>
+  <p-checkbox
+    name="testCheckbox"
+    [(ngModel)]="form.checkbox"
+    [binary]="true"
+    validation
+    required
+    [requiredDefault]="false"
+  />
+</div>
+
+<div class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-col gap-4 mt-4">
+  <label for="testRadiobutton">Radiobutton Test</label>
+
+  <div class="w-full inline-flex flex-wrap items-center gap-2">
+    <label for="testRadiobutton">Option 1</label>
+    <p-radiobutton
+      name="testRadiobutton"
+      inputId="radiobutton-op1"
+      [value]="1"
+      [(ngModel)]="form.radiobutton"
+      validation
+      required
+    />
+  </div>
+
+  <div class="w-full inline-flex flex-wrap items-center gap-2">
+    <label for="testRadiobutton">Option 2</label>
+    <p-radiobutton
+      name="testRadiobutton"
+      inputId="radiobutton-op2"
+      [value]="2"
+      [(ngModel)]="form.radiobutton"
+      validation
+      required
+      [requiredMessageIgnored]="true"
+    />
+  </div>
+
+  <div class="w-full inline-flex flex-wrap items-center gap-2">
+    <label for="testRadiobutton">Option 3</label>
+    <p-radiobutton
+      name="testRadiobutton"
+      inputId="radiobutton-op3"
+      [value]="3"
+      [(ngModel)]="form.radiobutton"
+      validation
+      required
+      [requiredMessageIgnored]="true"
+    />
+  </div>
+</div>
+
+<div class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-col gap-2 mt-4">
+  <label for="testSelectButton">Select Button Test</label>
+
+  <p-selectbutton
+    name="testSelectButton"
+    [options]="testSelectButton"
+    [(ngModel)]="form.selectButton"
+    validation
+    required
+  />
+</div>

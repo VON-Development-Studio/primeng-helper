@@ -23,6 +23,11 @@ const routes: Routes = [
     loadComponent: () =>
       import('./select/select').then((m) => m.SelectComponent),
   },
+  {
+    path: 'complex',
+    loadComponent: () =>
+      import('./complex/complex').then((m) => m.ComplexComponent),
+  },
 ];
 
 export default routes;

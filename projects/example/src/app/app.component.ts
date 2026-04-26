@@ -53,20 +53,24 @@ export class AppComponent {
       label: 'Form Validation',
       items: [
         {
-          url: '/form-validation/autocomplete',
-          label: 'AutoComplete',
+          url: '/form-validation/inputtext',
+          label: 'InputText',
         },
         {
           url: '/form-validation/datepicker',
           label: 'DatePicker',
         },
         {
-          url: '/form-validation/inputtext',
-          label: 'InputText',
-        },
-        {
           url: '/form-validation/select',
           label: 'Select',
+        },
+        {
+          url: '/form-validation/autocomplete',
+          label: 'AutoComplete',
+        },
+        {
+          url: '/form-validation/complex',
+          label: 'Form fields',
         },
       ],
     },
