@@ -73,3 +73,26 @@ $form-error-shadow: #f00 !default;
     }
   }
 }
+
+.field__checkbox {
+  &.field__error {
+    .p-checkbox-box {
+      @include field-error-style;
+    }
+  }
+}
+
+.field__radiobutton {
+  &.field__error {
+    .p-radiobutton-box {
+      @include field-error-style;
+    }
+  }
+}
+
+.field__toggle {
+  &.field__error {
+    border-width: 1px;
+    @include field-error-style;
+  }
+}

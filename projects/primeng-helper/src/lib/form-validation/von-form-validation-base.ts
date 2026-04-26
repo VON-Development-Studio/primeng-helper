@@ -25,6 +25,8 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   /* Required Section */
   @Input() required?: boolean | string;
   @Input() requiredMessage?: string;
+  @Input() requiredDefault?: any;
+  @Input() requiredMessageIgnored?: boolean;
 
   /* EqualTo Section */
   @Input() equalTo?: any;
@@ -93,15 +95,21 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   @HostListener('executeValidation') executeValidationEvent = () => {
     this.checkValidationMessages();
 
+    if (this.requiredDefault != null) {
+      this.ngModel = this.requiredDefault;
+      this.ngModelChange.emit(this.ngModel);
+    }
     this.validator = this.getCustomValidators(this.ngModel);
     const labelText = this.getLabelText();
     const { message, valid } = this.verifyValidationMessage();
 
     if (!valid) {
       this.renderer?.addClass(this.element?.nativeElement, 'field__error');
-      this.messageService?.error(message.replace('${name}', labelText), {
-        sticky: false,
-      });
+      if (!this.requiredMessageIgnored) {
+        this.messageService?.error(message.replace('${name}', labelText), {
+          sticky: false,
+        });
+      }
     } else {
       this.renderer?.removeClass(this.element?.nativeElement, 'field__error');
       this.renderer?.removeClass(this.element?.nativeElement, 'ng-invalid');
@@ -170,6 +178,10 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
         return 'field__checkbox';
       case 'p-select':
         return 'field__select';
+      case 'p-radiobutton':
+        return 'field__radiobutton';
+      case 'p-selectbutton':
+        return 'field__toggle';
     }
     return 'field__no-defined';
   };
