@@ -6,7 +6,7 @@ import {
   VonFormValidateDirective,
   VonFormValidationDirective,
 } from '@von-ds/primeng-helper';
-import { Button } from 'primeng/button';
+import { ButtonDirective } from 'primeng/button';
 import { Card } from 'primeng/card';
 import { DatePicker } from 'primeng/datepicker';
 import { FloatLabel } from 'primeng/floatlabel';
@@ -19,7 +19,7 @@ import { FloatLabel } from 'primeng/floatlabel';
     FormsModule,
     DatePipe,
 
-    Button,
+    ButtonDirective,
     Card,
     DatePicker,
     FloatLabel,

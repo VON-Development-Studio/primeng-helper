@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { VonMessageService } from '@von-ds/primeng-helper';
-import { Button } from 'primeng/button';
+import { ButtonDirective } from 'primeng/button';
 
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  imports: [Button],
+  imports: [ButtonDirective],
 })
 export class MessagesComponent {
   private readonly message = inject(VonMessageService);

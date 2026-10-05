@@ -79,13 +79,14 @@
       </div>
 
       <footer class="inline-flex items-center justify-end gap-4 w-full">
-        <p-button
+        <button
           type="button"
           severity="secondary"
-          label="Reset"
-          (onClick)="requiredForm.reset()"
-        />
-        <p-button type="submit" severity="success" label="Validate" />
+          (click)="requiredForm.reset()"
+        >
+          Reset
+        </button>
+        <button type="submit" severity="success">Validate</button>
       </footer>
     </form>
   </p-card>
@@ -192,13 +193,14 @@
       </div>
 
       <footer class="inline-flex items-center justify-end gap-4 w-full">
-        <p-button
+        <button
           type="button"
           severity="secondary"
-          label="Reset"
-          (onClick)="equalToForm.reset()"
-        />
-        <p-button type="submit" severity="success" label="Validate" />
+          (click)="equalToForm.reset()"
+        >
+          Reset
+        </button>
+        <button type="submit" severity="success">Validate</button>
       </footer>
     </form>
   </p-card>
@@ -287,13 +289,15 @@
       </div>
 
       <footer class="inline-flex items-center justify-end gap-4 w-full">
-        <p-button
+        <button
+          pButton
           type="button"
           severity="secondary"
-          label="Reset"
-          (onClick)="customForm.reset()"
-        />
-        <p-button type="submit" severity="success" label="Validate" />
+          (click)="customForm.reset()"
+        >
+          Reset
+        </button>
+        <button pButton type="submit" severity="success">Validate</button>
       </footer>
     </form>
   </p-card>

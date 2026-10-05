@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ConfirmationService } from 'primeng/api';
-import { ButtonModule } from 'primeng/button';
+import { ButtonDirective } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { of, throwError } from 'rxjs';
 import { delay, switchMap, tap } from 'rxjs/operators';
@@ -10,7 +10,14 @@ import { delay, switchMap, tap } from 'rxjs/operators';
   selector: 'confirmation-component',
   templateUrl: './confirmation.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  imports: [ConfirmDialogModule, ButtonModule, FormsModule],
+  imports: [
+    // Ng
+    FormsModule,
+
+    // PrimeNG
+    ButtonDirective,
+    ConfirmDialogModule,
+  ],
 })
 export class ConfirmationComponent {
   constructor(private readonly confirmationDialog: ConfirmationService) {}

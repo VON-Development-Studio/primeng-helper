@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AppService } from '@example/app.service';
 import { VonFormValidateDirective } from '@von-ds/primeng-helper';
-import { ButtonModule } from 'primeng/button';
+import { ButtonDirective } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ComplexInternalComponent } from './complex-internal';
 
@@ -10,7 +10,7 @@ import { ComplexInternalComponent } from './complex-internal';
   templateUrl: './complex.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
-    ButtonModule,
+    ButtonDirective,
     CardModule,
 
     ComplexInternalComponent,

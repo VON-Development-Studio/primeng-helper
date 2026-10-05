@@ -6,7 +6,7 @@ import {
   VonFormValidationDirective,
 } from '@von-ds/primeng-helper';
 import { SelectItem } from 'primeng/api';
-import { Button } from 'primeng/button';
+import { ButtonDirective } from 'primeng/button';
 import { Card } from 'primeng/card';
 import { FloatLabel } from 'primeng/floatlabel';
 import { Select } from 'primeng/select';
@@ -18,7 +18,7 @@ import { Select } from 'primeng/select';
   imports: [
     FormsModule,
 
-    Button,
+    ButtonDirective,
     Card,
     FloatLabel,
     Select,

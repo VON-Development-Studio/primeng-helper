@@ -6,7 +6,7 @@ import {
   VonFormValidationDirective,
 } from '@von-ds/primeng-helper';
 import { AutoComplete } from 'primeng/autocomplete';
-import { Button } from 'primeng/button';
+import { ButtonDirective } from 'primeng/button';
 import { Card } from 'primeng/card';
 import { FloatLabel } from 'primeng/floatlabel';
 
@@ -18,7 +18,7 @@ import { FloatLabel } from 'primeng/floatlabel';
     FormsModule,
 
     AutoComplete,
-    Button,
+    ButtonDirective,
     Card,
     FloatLabel,
 

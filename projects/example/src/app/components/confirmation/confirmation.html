@@ -1,21 +1,19 @@
 <section class="flex flex-wrap gap-4">
-  <p-button
-    severity="primary"
-    (click)="openDialogWithCustomHeader()"
-    label="Custom header"
-  />
+  <button pButton severity="primary" (click)="openDialogWithCustomIcon()">
+    Custom icon
+  </button>
 
-  <p-button
-    severity="primary"
-    (click)="openDialogWithCustomMessage()"
-    label="Custom message"
-  />
+  <button pButton severity="primary" (click)="openDialogWithCustomHeader()">
+    Custom header
+  </button>
 
-  <p-button
-    severity="primary"
-    (click)="openDialogWithCustomButtons()"
-    label="Custom buttons"
-  />
+  <button pButton severity="primary" (click)="openDialogWithCustomMessage()">
+    Custom message
+  </button>
+
+  <button pButton severity="primary" (click)="openDialogWithCustomButtons()">
+    Custom buttons
+  </button>
 </section>
 
 <div class="my-4">
@@ -23,9 +21,7 @@
 </div>
 
 <section class="flex flex-wrap gap-4">
-  <p-button
-    severity="danger"
-    (click)="openDialogWithError()"
-    label="Dialog with error"
-  />
+  <button pButton severity="danger" (click)="openDialogWithError()">
+    Dialog with error
+  </button>
 </section>

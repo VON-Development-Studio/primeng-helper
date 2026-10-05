@@ -5,7 +5,7 @@ import {
   VonFormValidateDirective,
   VonFormValidationDirective,
 } from '@von-ds/primeng-helper';
-import { ButtonModule } from 'primeng/button';
+import { ButtonDirective } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
@@ -17,7 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
   imports: [
     FormsModule,
 
-    ButtonModule,
+    ButtonDirective,
     CardModule,
     FloatLabelModule,
     InputTextModule,
