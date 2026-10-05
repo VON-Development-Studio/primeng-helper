@@ -1,4 +1,8 @@
-import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DebugElement,
+} from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MessageService } from 'primeng/api';
@@ -25,7 +29,7 @@ describe('FormValidationDirective', () => {
 
     fixture = TestBed.createComponent(TestFormValidationHostComponent);
     debugElement = fixture.debugElement.query(
-      By.directive(VonFormValidationDirective)
+      By.directive(VonFormValidationDirective),
     );
     directiveInstance = debugElement.injector.get(VonFormValidationDirective);
 

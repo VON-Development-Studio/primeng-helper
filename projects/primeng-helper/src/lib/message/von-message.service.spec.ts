@@ -1,10 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { MessageService, ToastMessageOptions } from 'primeng/api';
+import { vi, type MockedObject } from 'vitest';
 import { VonMessageService } from './von-message.service';
 
 describe('VonMessageService', () => {
   let service: VonMessageService;
-  let messageServiceSpy: jasmine.SpyObj<MessageService>;
+  let messageServiceSpy: MockedObject<MessageService>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -12,14 +13,16 @@ describe('VonMessageService', () => {
         MessageService,
         {
           provide: MessageService,
-          useValue: jasmine.createSpyObj('MessageService', ['add']),
+          useValue: {
+            add: vi.fn().mockName('MessageService.add'),
+          },
         },
       ],
     });
     service = TestBed.inject(VonMessageService);
     messageServiceSpy = TestBed.inject(
-      MessageService
-    ) as jasmine.SpyObj<MessageService>;
+      MessageService,
+    ) as MockedObject<MessageService>;
   });
 
   it('should be created', () => {
@@ -32,8 +35,10 @@ describe('VonMessageService', () => {
 
       service['add'](expectedData.severity, expectedData.detail);
 
-      expect(messageServiceSpy.add.calls.count()).toBe(1);
-      expect(messageServiceSpy.add.withArgs(expectedData)).toBeTruthy();
+      expect(vi.mocked(messageServiceSpy.add).mock.calls).toHaveLength(1);
+      expect(
+        vi.when(messageServiceSpy.add).calledWith(expectedData).thenReturn(),
+      ).toBeTruthy();
     });
 
     it('should call message service with an extra parameter', () => {
@@ -47,24 +52,26 @@ describe('VonMessageService', () => {
       service['add'](
         expectedData.severity!,
         expectedData.detail!,
-        expectedData
+        expectedData,
       );
 
-      expect(messageServiceSpy.add.calls.count()).toBe(1);
-      expect(messageServiceSpy.add.withArgs(expectedData)).toBeTruthy();
+      expect(vi.mocked(messageServiceSpy.add).mock.calls).toHaveLength(1);
+      expect(
+        vi.when(messageServiceSpy.add).calledWith(expectedData).thenReturn(),
+      ).toBeTruthy();
     });
   });
 
   describe('VON Message wrapper', () => {
     beforeEach(() => {
-      spyOn<any>(service, 'add').and.callFake(() => {});
+      vi.spyOn<any, any>(service, 'add').mockImplementation(() => {});
     });
 
     it('should call message service with info severity', () => {
       const message = 'Test';
-      const extraParams = { icon: 'pi-info-circle' };
+      const extraParams = { icon: 'pi pi-info-circle' };
 
-      service['addInfo'](message);
+      service.info(message);
 
       expect(service['add']).toHaveBeenCalled();
       expect(service['add']).toHaveBeenCalledWith('info', message, extraParams);
@@ -74,26 +81,26 @@ describe('VonMessageService', () => {
       const message = 'Test';
       const extraParams = { closable: true, sticky: true };
 
-      service['addInfo'](message, extraParams);
+      service.info(message, extraParams);
 
       expect(service['add']).toHaveBeenCalled();
       expect(service['add']).toHaveBeenCalledWith('info', message, {
         ...extraParams,
-        icon: 'pi-info-circle',
+        icon: 'pi pi-info-circle',
       });
     });
 
     it('should call message service with success severity', () => {
       const message = 'Test';
-      const extraParams = { icon: 'pi-check' };
+      const extraParams = { icon: 'pi pi-check' };
 
-      service['addSuccess'](message);
+      service.success(message);
 
       expect(service['add']).toHaveBeenCalled();
       expect(service['add']).toHaveBeenCalledWith(
         'success',
         message,
-        extraParams
+        extraParams,
       );
     });
 
@@ -101,20 +108,20 @@ describe('VonMessageService', () => {
       const message = 'Test';
       const extraParams = { closable: true, sticky: true };
 
-      service['addSuccess'](message, extraParams);
+      service.success(message, extraParams);
 
       expect(service['add']).toHaveBeenCalled();
       expect(service['add']).toHaveBeenCalledWith('success', message, {
         ...extraParams,
-        icon: 'pi-check',
+        icon: 'pi pi-check',
       });
     });
 
     it('should call message service with warning severity', () => {
       const message = 'Test';
-      const extraParams = { icon: 'pi-exclamation-triangle' };
+      const extraParams = { icon: 'pi pi-exclamation-triangle' };
 
-      service['addWarning'](message);
+      service.warning(message);
 
       expect(service['add']).toHaveBeenCalled();
       expect(service['add']).toHaveBeenCalledWith('warn', message, extraParams);
@@ -124,26 +131,26 @@ describe('VonMessageService', () => {
       const message = 'Test';
       const extraParams = { closable: true, sticky: true };
 
-      service['addWarning'](message, extraParams);
+      service.warning(message, extraParams);
 
       expect(service['add']).toHaveBeenCalled();
       expect(service['add']).toHaveBeenCalledWith('warn', message, {
         ...extraParams,
-        icon: 'pi-exclamation-triangle',
+        icon: 'pi pi-exclamation-triangle',
       });
     });
 
     it('should call message service with error severity', () => {
       const message = 'Test';
-      const extraParams = { icon: 'pi-times-circle' };
+      const extraParams = { icon: 'pi pi-times-circle' };
 
-      service['addError'](message);
+      service.error(message);
 
       expect(service['add']).toHaveBeenCalled();
       expect(service['add']).toHaveBeenCalledWith(
         'error',
         message,
-        extraParams
+        extraParams,
       );
     });
 
@@ -151,12 +158,12 @@ describe('VonMessageService', () => {
       const message = 'Test';
       const extraParams = { closable: true, sticky: true };
 
-      service['addError'](message, extraParams);
+      service.error(message, extraParams);
 
       expect(service['add']).toHaveBeenCalled();
       expect(service['add']).toHaveBeenCalledWith('error', message, {
         ...extraParams,
-        icon: 'pi-times-circle',
+        icon: 'pi pi-times-circle',
       });
     });
   });

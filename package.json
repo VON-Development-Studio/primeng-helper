@@ -20,6 +20,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test primeng-helper",
     "test:demo": "ng test example",
+    "test:ci": "ng test primeng-helper --no-watch --no-progress",
     "publish:rel": "cd dist/primeng-helper && npm publish --tag latest --access public",
     "publish:snapshot": "cd dist/primeng-helper && npm publish --tag snapshot --access public"
   },
@@ -49,15 +50,13 @@
     "@angular/cdk": "^22.2.1",
     "@angular/cli": "^22.2.1",
     "@angular/compiler-cli": "^22.2.1",
-    "@types/jasmine": "~5.1.0",
-    "jasmine-core": "~5.2.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
+    "@vitest/browser-playwright": "^5.0.3",
+    "@vitest/browser-preview": "^5.0.3",
     "istanbul-lib-instrument": "^6.0.3",
+    "jsdom": "^30.1.2",
     "ng-packagr": "^22.2.4",
-    "typescript": "6.0.3"
+    "playwright": "^1.63.0",
+    "typescript": "6.0.3",
+    "vitest": "^5.0.3"
   }
 }

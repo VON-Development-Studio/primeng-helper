@@ -5,12 +5,16 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
     "types": [
-      "jasmine"
-    ]
+      "vitest/globals"
+    ],
+    "composite": true,
+    "inlineSources": true,
+    "declaration": true
   },
   "include": [
+    "src/**/*.d.ts",
     "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "src/**/*.ts"
   ],
   "angularCompilerOptions": {
     "extendedDiagnostics": {
