@@ -1,17 +1,17 @@
-<p-toast>
+<p-toast [mode]="mode">
   <ng-template #message let-message>
     <span
       class="p-toast-message-icon {{ message.icon }}"
-      data-pc-section="messageicon"
+      [attr.data-pc-section]="'messageicon'"
     ></span>
 
-    <div class="p-toast-message-text" data-pc-section="messagetext">
+    <div class="p-toast-message-text" [attr.data-pc-section]="'messagetext'">
       @if (message.summary) {
-      <div class="p-toast-summary" data-pc-section="summary">
+      <div class="p-toast-summary" [attr.data-pc-section]="'summary'">
         {{ message.summary }}
       </div>
       }
-      <div class="p-toast-detail" data-pc-section="detail">
+      <div class="p-toast-detail" [attr.data-pc-section]="'detail'">
         {{ message.detail }}
       </div>
     </div>

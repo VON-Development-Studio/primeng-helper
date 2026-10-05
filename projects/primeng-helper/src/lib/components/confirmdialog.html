@@ -12,7 +12,7 @@
       <div
         class="rounded-full bg-primary text-primary-contrast inline-flex justify-center items-center h-24 w-24 -mt-20"
       >
-        <i class="{{defaultIcon}} !text-5xl"></i>
+        <i class="{{message.icon ?? defaultIcon}} !text-5xl"></i>
       </div>
 
       <span class="font-bold text-2xl block mb-2 mt-6">
@@ -22,23 +22,28 @@
       <p class="m-0" innerHTML="{{ message.message ?? defaultMessage }}"></p>
 
       <div class="flex items-center gap-2 mt-6">
-        <p-button
-          [label]="message.acceptLabel ?? defaultAccept"
+        <button
+          pButton
+          class="w-32"
           severity="primary"
-          (onClick)="handleAccept(onAccept, message.accept)"
-          styleClass="w-32"
-          [loading]="loading"
           [disabled]="loading"
-        />
+          (click)="handleAccept(onAccept, message.accept)"
+        >
+          @if(loading) {
+          <svg data-p-icon="spinner" class="animate-spin"></svg>
+          } {{message.acceptLabel ?? defaultAccept}}
+        </button>
 
-        <p-button
-          [label]="message.rejectLabel ?? defaultReject"
+        <button
+          pButton
+          class="w-32"
           severity="primary"
           [outlined]="true"
-          (onClick)="onReject()"
-          styleClass="w-32"
           [disabled]="loading"
-        />
+          (click)="onReject()"
+        >
+          {{message.rejectLabel ?? defaultReject}}
+        </button>
       </div>
     </div>
     }

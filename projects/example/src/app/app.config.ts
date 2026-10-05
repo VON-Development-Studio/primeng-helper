@@ -5,6 +5,7 @@ import Aura from '@primeuix/themes/aura';
 import { VonMessageService } from '@von-ds/primeng-helper';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { providePrimeNG } from 'primeng/config';
+import { PRIMEUI_LICENSE_KEY } from '../environments/primeng.config';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -13,6 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     providePrimeNG({
+      license: PRIMEUI_LICENSE_KEY,
       ripple: true,
       theme: {
         preset: Aura,

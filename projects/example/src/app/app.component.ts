@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkWithHref, RouterOutlet } from '@angular/router';
 import { VonConfirmDialogComponent } from '@von-ds/primeng-helper/components/confirmdialog';
@@ -27,6 +27,7 @@ import { AppService } from './app.service';
     VonToastComponent,
     VonConfirmDialogComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [ConfirmationService],
 })
 export class AppComponent {

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '@example/app.service';
 import {
@@ -14,6 +14,7 @@ import { Select } from 'primeng/select';
 @Component({
   selector: 'select-component',
   templateUrl: './select.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     FormsModule,
 

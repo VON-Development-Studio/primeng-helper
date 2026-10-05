@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ConfirmationService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -9,10 +9,18 @@ import { delay, switchMap, tap } from 'rxjs/operators';
 @Component({
   selector: 'confirmation-component',
   templateUrl: './confirmation.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ConfirmDialogModule, ButtonModule, FormsModule],
 })
 export class ConfirmationComponent {
   constructor(private readonly confirmationDialog: ConfirmationService) {}
+
+  openDialogWithCustomIcon = () => {
+    this.confirmationDialog.confirm({
+      icon: 'pi pi-heart-fill',
+      accept: () => of('').pipe(delay(1000)),
+    });
+  };
 
   openDialogWithCustomHeader = () => {
     this.confirmationDialog.confirm({

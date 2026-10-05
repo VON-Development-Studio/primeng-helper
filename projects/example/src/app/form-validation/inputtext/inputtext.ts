@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '@example/app.service';
 import {
@@ -13,6 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
 @Component({
   selector: 'inputtext-component',
   templateUrl: './inputtext.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     FormsModule,
 

@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
-import { Toast } from 'primeng/toast';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Toast, ToastModeType } from 'primeng/toast';
 
 @Component({
   selector: 'von-toast',
   templateUrl: './toast.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [Toast],
 })
-export class VonToastComponent {}
+export class VonToastComponent {
+  @Input() mode: ToastModeType = 'expanded';
+}

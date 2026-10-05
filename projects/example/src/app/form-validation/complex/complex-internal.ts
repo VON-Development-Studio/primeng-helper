@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { VonFormValidationDirective } from '@von-ds/primeng-helper';
 import { SelectItem } from 'primeng/api';
@@ -14,6 +14,7 @@ import { SelectButton } from 'primeng/selectbutton';
 @Component({
   selector: '[complex-internal-component]',
   templateUrl: './complex-internal.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     FormsModule,
 

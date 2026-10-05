@@ -5,6 +5,9 @@
 
 @use "tailwindcss";
 
+@use "./app/core/primeng-helper";
+@use "../../primeng-helper/src/scss/von-form-validation";
+
 @plugin 'tailwindcss-primeui';
 @layer tailwind, primeng;
 
@@ -30,6 +33,3 @@ html {
     }
   }
 }
-
-@import "./app/core/primeng-helper";
-@import "../../primeng-helper/src/scss/von-form-validation"
