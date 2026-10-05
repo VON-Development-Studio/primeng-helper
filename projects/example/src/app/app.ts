@@ -10,8 +10,8 @@ import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
   imports: [
     // Angular
     FormsModule,
@@ -31,7 +31,7 @@ import { AppService } from './app.service';
   providers: [ConfirmationService],
 })
 export class AppComponent {
-  title = 'example';
+  title = 'VON Development Studio';
 
   isEnglish = true;
   private readonly appService = inject(AppService);
