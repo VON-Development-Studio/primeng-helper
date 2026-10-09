@@ -151,6 +151,53 @@ npm i @von-development-studio/primeng-helper -S
     });
     ```
 
+### Button
+
+1. Import the component `VonButtonComponent`.
+
+2. Add it to your `markup` as an attribute next to `pButton` PrimeNG directive `vonButton`. You can use the following examples to manage the content you want to show:
+
+    - Label:
+
+        ```html
+        <button pButton vonButton label="This is a label"></button>
+        ```
+
+    - Class icon:
+
+        ```html
+        <button pButton vonButton icon="pi pi-check"></button>
+        <button pButton vonButton icon="fa-solid fa-check"></button>
+        ```
+
+    - Primeicons:
+
+        ```html
+        <button pButton vonButton [primeIcon]="true" icon="check"></button>
+        ```
+
+    - Custom icons markup like Material Icons, needed inside the `button` a tag with an attribute `custom-icon`:
+
+        ```html
+        <button pButton vonButton>
+          <span custom-icon class="material-icons text-[1rem]!">android</span>
+        </button>
+        ```
+
+    - Loading indicator:
+
+        ```html
+        <button pButton vonButton [loading]="true" label="This is a label"></button>
+        ```
+
+    - Custom content:
+
+        ```html
+        <button pButton vonButton>
+          <span>Here goes anything</span>
+        </button>
+        ```
+
 ## Powered by
 
 [Luis Garcia Castro](https://github.com/lfgarcia22)

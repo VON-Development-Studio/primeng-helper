@@ -48,6 +48,10 @@ export class AppComponent {
           url: '/custom-components/confirmation',
           label: 'Confirmation Dialog',
         },
+        {
+          url: '/custom-components/button',
+          label: 'Button Extension',
+        },
       ],
     },
     {

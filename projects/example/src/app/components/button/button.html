@@ -1,0 +1,59 @@
+<section class="flex flex-col gap-4">
+  <span class="font-bold">Example with Label</span>
+  <span class="inline-flex items-center gap-4">
+    With String:
+    <button pButton vonButton label="Label"></button>
+
+    With Variable:
+    <button pButton vonButton [label]="label"></button>
+  </span>
+
+  <span class="font-bold">Example with Icon</span>
+  <span class="inline-flex items-center gap-4">
+    <span> With String: </span>
+    <button pButton vonButton icon="pi pi-check"></button>
+
+    <span> With Variable: </span>
+    <button pButton vonButton [icon]="icon"></button>
+
+    <span> With PrimeIcon: </span>
+    <button pButton vonButton [primeIcon]="true" icon="check"></button>
+
+    <span> With Custom Icon: </span>
+    <button pButton vonButton>
+      <span custom-icon class="material-icons text-[1rem]!">android</span>
+    </button>
+  </span>
+
+  <span class="font-bold">Example with Label and Icon</span>
+  <span class="inline-flex items-center gap-4">
+    <span> Left: </span>
+    <button pButton vonButton [icon]="icon" iconPos="left" [label]="label"></button>
+
+    <span> Left Custom: </span>
+    <button pButton vonButton iconPos="left" [label]="label">
+      <span custom-icon class="material-icons text-[1rem]!">android</span>
+    </button>
+
+    <span> Right: </span>
+    <button pButton vonButton [icon]="icon" iconPos="right" [label]="label"></button>
+
+    <span> Right Custom: </span>
+    <button pButton vonButton iconPos="right" [label]="label">
+      <span custom-icon class="material-icons text-[1rem]!">android</span>
+    </button>
+  </span>
+
+  <span class="font-bold">Example with Loading</span>
+  <span class="inline-flex items-center gap-4">
+    <button pButton vonButton [loading]="true" [label]="label"></button>
+  </span>
+
+  <span class="font-bold">Example with Loading, inner text and right custom icon</span>
+  <span class="inline-flex items-center gap-4">
+    <button pButton vonButton [loading]="true" iconPos="right" [label]="label">
+      <span>[Content]</span>
+      <span custom-icon class="material-icons text-[1rem]!">android</span>
+    </button>
+  </span>
+</section>

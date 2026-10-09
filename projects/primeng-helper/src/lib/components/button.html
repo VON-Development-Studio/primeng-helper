@@ -1,0 +1,27 @@
+@if (!loading() && iconPos === 'left') {
+  <ng-container *ngTemplateOutlet="iconWithClass" />
+}
+
+@if (loading()) {
+  <svg data-p-icon="spinner" class="animate-spin"></svg>
+}
+
+@if (label) {
+  {{ label }}
+}
+
+<ng-content></ng-content>
+
+@if (iconPos === 'right') {
+  <ng-container *ngTemplateOutlet="iconWithClass" />
+}
+
+<ng-template #iconWithClass>
+  @if (primeIcon && icon != null) {
+    <svg [pIcon]="icon"></svg>
+  } @else if (icon != null) {
+    <i [class]="icon"></i>
+  }
+
+  <ng-content select="[custom-icon]"></ng-content>
+</ng-template>

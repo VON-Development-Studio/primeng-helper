@@ -1423,7 +1423,7 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.29.tgz#5a40109a1ab5f84d6fd8fc928b19f367cbe7e7b1"
   integrity sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==
 
-"@primeicons/angular@^8.0.0":
+"@primeicons/angular@^8.0.0", "@primeicons/angular@^8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@primeicons/angular/-/angular-8.0.2.tgz#5a22c069f8b7305a8cd27ff0c1262bec69dcf468"
   integrity sha512-4btWhgztXMmjUozwsWH28QjVPfZYLGZBlqBCnV4c0WtBk9gWle5N2EyBRPOUEO4QKScHwUbNZ+29dX5ZsTeDMQ==
@@ -3045,6 +3045,11 @@ make-dir@^2.1.0:
   dependencies:
     pify "^4.0.1"
     semver "^5.6.0"
+
+material-icons@^1.13.14:
+  version "1.13.14"
+  resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-1.13.14.tgz#65ae8693550b9f789036bd4cf29e775f1bd389ed"
+  integrity sha512-kZOfc7xCC0rAT8Q3DQixYAeT+tBqZnxkseQtp2bxBxz7q5pMAC+wmit7vJn1g/l7wRU+HEPq23gER4iPjGs5Cg==
 
 mdn-data@2.27.1:
   version "2.27.1"
