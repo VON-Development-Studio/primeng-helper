@@ -1,5 +1,13 @@
 _Read this in other language: [Spanish](https://github.com/VON-Development-Studio/angular-rest-service/blob/snapshot/CHANGELOG.es.md)_
 
+## 22.0.3
+
+- Allow `von-toast` to be used as a directive.
+
+- Set default `mode` value to "expanded" and `stackVisibleLimit` the value of 5.
+
+- Allow proper override for `toast` message icon.
+
 ## 22.0.2
 
 - Add custom directive to concat a `label` or `icon` based on the deprecated definition by PrimeNG.

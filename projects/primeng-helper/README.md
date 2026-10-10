@@ -125,6 +125,10 @@ npm i @von-development-studio/primeng-helper -S
 
 2. Add it to your `AppComponent` as: `<von-toast />`
 
+    * Parameter `mode` is default as expanded and can be set in your `AppComponent`.
+
+    * Parameter `stackVisibleLimit` is default to 5 and can be set in your `AppComponent`.
+
 ### Confirm Dialog
 
 1. Import the component `VonConfirmDialogComponent`.

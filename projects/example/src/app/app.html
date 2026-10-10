@@ -9,17 +9,15 @@
 
     <section class="inline-flex items-center gap-2 my-4">
       <span>Español</span>
-      <p-toggleswitch
-        [(ngModel)]="isEnglish"
-        (onChange)="handleLanguageChange()"
-      />
+      <p-toggleswitch [(ngModel)]="isEnglish" (onChange)="handleLanguageChange()" />
       <span>English</span>
     </section>
 
     <p-menubar [model]="navigationBar" />
   </header>
 
-  <von-toast />
+  <von-toast [stackVisibleLimit]="15" />
+
   <von-confirm-dialog
     defaultHeader="VON Development Studio"
     defaultMessage="Are you sure you want to continue?"

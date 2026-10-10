@@ -3,48 +3,41 @@
 
   <span>
     Here you can see how to use the
-    <code class="text-primary font-bold">VonMessageService</code> to show
-    messages in your application. Click the buttons below to see different types
-    of messages.
+    <code class="text-primary font-bold">VonMessageService</code> to show messages in your application. Click the
+    buttons below to see different types of messages.
   </span>
 
   <div class="inline-flex flex-wrap gap-4">
     <button pButton severity="info" (click)="showInfoMessage()">Info</button>
 
-    <button pButton severity="success" (click)="showSuccessMessage()">
-      Success
-    </button>
+    <button pButton severity="success" (click)="showSuccessMessage()">Success</button>
 
-    <button pButton severity="warn" (click)="showWarningMessage()">
-      Warning
-    </button>
+    <button pButton severity="warn" (click)="showWarningMessage()">Warning</button>
 
-    <button pButton severity="danger" (click)="showErrorMessage()">
-      Error
-    </button>
+    <button pButton severity="danger" (click)="showErrorMessage()">Error</button>
   </div>
 
   <div class="inline-flex flex-wrap gap-4">
-    <button pButton severity="info" (click)="showInfoMessage(true)">
-      Info (STICKY)
-    </button>
+    <button pButton severity="info" (click)="showInfoMessage(true)">Info (STICKY)</button>
 
-    <button pButton severity="success" (click)="showSuccessMessage(true)">
-      Success (STICKY)
-    </button>
+    <button pButton severity="success" (click)="showSuccessMessage(true)">Success (STICKY)</button>
 
-    <button pButton severity="warn" (click)="showWarningMessage(true)">
-      Warning (STICKY)
-    </button>
+    <button pButton severity="warn" (click)="showWarningMessage(true)">Warning (STICKY)</button>
 
-    <button pButton severity="danger" (click)="showErrorMessage(true)">
-      Error (STICKY)
-    </button>
+    <button pButton severity="danger" (click)="showErrorMessage(true)">Error (STICKY)</button>
   </div>
 
   <div class="inline-flex flex-wrap gap-4">
-    <button pButton severity="secondary" (click)="cleanMessages()">
-      Clean all
-    </button>
+    <button pButton severity="info" (click)="showInfoMessage(true, 'pi pi-at')">Info (STICKY & ICON)</button>
+
+    <button pButton severity="success" (click)="showSuccessMessage(true, 'pi pi-at')">Success (STICKY & ICON)</button>
+
+    <button pButton severity="warn" (click)="showWarningMessage(true, 'pi pi-at')">Warning (STICKY & ICON)</button>
+
+    <button pButton severity="danger" (click)="showErrorMessage(true, 'pi pi-at')">Error (STICKY & ICON)</button>
+  </div>
+
+  <div class="inline-flex flex-wrap gap-4">
+    <button pButton severity="secondary" (click)="cleanMessages()">Clean all</button>
   </div>
 </section>

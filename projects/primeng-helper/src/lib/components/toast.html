@@ -1,18 +1,15 @@
-<p-toast [mode]="mode">
+<p-toast [mode]="mode" [stackVisibleLimit]="stackVisibleLimit">
   <ng-template #message let-message>
-    <span
-      class="p-toast-message-icon {{ message.icon }}"
-      [attr.data-pc-section]="'messageicon'"
-    ></span>
+    <span class="p-toast-message-icon {{ message.icon }}" [attr.data-pc-section]="'messageicon'"></span>
 
     <div class="p-toast-message-text" [attr.data-pc-section]="'messagetext'">
       @if (message.summary) {
-      <div class="p-toast-summary" [attr.data-pc-section]="'summary'">
-        {{ message.summary }}
-      </div>
+        <div class="p-toast-summary" [attr.data-pc-section]="'summary'">
+          <span [innerHTML]="message.summary"></span>
+        </div>
       }
       <div class="p-toast-detail" [attr.data-pc-section]="'detail'">
-        {{ message.detail }}
+        <span [innerHTML]="message.detail"></span>
       </div>
     </div>
   </ng-template>
