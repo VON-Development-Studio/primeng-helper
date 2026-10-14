@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Directive,
   ElementRef,
   EventEmitter,
@@ -15,7 +16,7 @@ import { VALIDATION_MESSAGES } from '../utils/von-translations';
 import { VonLocalizationModel } from './models/von-localization.model';
 
 @Directive()
-export abstract class VonFormValidationBase implements OnInit, Validator {
+export abstract class VonFormValidationBase implements OnInit, AfterViewInit, Validator {
   @Input() ngModel?: any;
   @Output() ngModelChange = new EventEmitter<any>();
 
@@ -52,16 +53,19 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   protected messageService = inject(VonMessageService);
 
   ngOnInit(): void {
-    const $closestFormEl =
-      this.element?.nativeElement.form ||
-      this.getClosestForm(this.element?.nativeElement);
-
     this.checkValidationMessages();
 
     if (this.required != null && this.required === '') {
       this.required = true;
     }
 
+    this.renderer?.setAttribute(this.element?.nativeElement, 'validation', 'true');
+
+    this.renderer?.addClass(this.element?.nativeElement, this.verifyClassName(this.element?.nativeElement));
+  }
+
+  ngAfterViewInit(): void {
+    const $closestFormEl = this.element?.nativeElement.form || this.getClosestForm(this.element?.nativeElement);
     this.$label = $closestFormEl.querySelector(`label[for='${this.name}']`);
     if (this.$label) {
       this.renderer?.addClass(this.$label, 'field__label');
@@ -69,17 +73,6 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
         this.renderer?.addClass(this.$label, 'field__label--required');
       }
     }
-
-    this.renderer?.setAttribute(
-      this.element?.nativeElement,
-      'validation',
-      'true',
-    );
-
-    this.renderer?.addClass(
-      this.element?.nativeElement,
-      this.verifyClassName(this.element?.nativeElement),
-    );
   }
 
   validate(formValue: FormControl): ValidationErrors {
@@ -187,12 +180,8 @@ export abstract class VonFormValidationBase implements OnInit, Validator {
   };
 
   private readonly checkValidationMessages = () => {
-    const $closestFormEl =
-      this.element?.nativeElement.form ||
-      this.getClosestForm(this.element?.nativeElement);
+    const $closestFormEl = this.element?.nativeElement.form || this.getClosestForm(this.element?.nativeElement);
     const isValidationEn = !$closestFormEl.hasAttribute('validation-es');
-    this.messages = isValidationEn
-      ? VALIDATION_MESSAGES.EN
-      : VALIDATION_MESSAGES.ES;
+    this.messages = isValidationEn ? VALIDATION_MESSAGES.EN : VALIDATION_MESSAGES.ES;
   };
 }

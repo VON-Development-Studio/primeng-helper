@@ -10,6 +10,7 @@ import { InputText } from 'primeng/inputtext';
 import { RadioButton } from 'primeng/radiobutton';
 import { Select } from 'primeng/select';
 import { SelectButton } from 'primeng/selectbutton';
+import { Textarea } from 'primeng/textarea';
 
 @Component({
   selector: '[complex-internal-component]',
@@ -26,6 +27,7 @@ import { SelectButton } from 'primeng/selectbutton';
     RadioButton,
     Select,
     SelectButton,
+    Textarea,
 
     VonFormValidationDirective,
   ],

@@ -9,14 +9,7 @@
     >
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <input
-            pInputText
-            name="test1"
-            [(ngModel)]="test1"
-            class="w-full"
-            validation
-            required
-          />
+          <input pInputText name="test1" [(ngModel)]="test1" class="w-full" validation required />
           <label for="test1">Test 1</label>
         </p-floatlabel>
         <small>Required validation field.</small>
@@ -24,14 +17,7 @@
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <input
-            pInputText
-            name="test2"
-            [(ngModel)]="test2"
-            class="w-full"
-            validation
-            required
-          />
+          <input pInputText name="test2" [(ngModel)]="test2" class="w-full" validation required />
         </p-floatlabel>
         <small>Required validation field without label.</small>
       </div>
@@ -67,14 +53,7 @@
       </div>
 
       <footer class="inline-flex items-center justify-end gap-4 w-full">
-        <button
-          pButton
-          type="button"
-          severity="secondary"
-          (click)="requiredForm.reset()"
-        >
-          Reset
-        </button>
+        <button pButton type="button" severity="secondary" (click)="requiredForm.reset()">Reset</button>
         <button pButton type="submit" severity="success">Validate</button>
       </footer>
     </form>
@@ -90,14 +69,7 @@
     >
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <input
-            pInputText
-            name="test5"
-            [(ngModel)]="test5"
-            class="w-full"
-            validation
-            equalTo="test"
-          />
+          <input pInputText name="test5" [(ngModel)]="test5" class="w-full" validation equalTo="test" />
           <label for="test5">Test 5</label>
         </p-floatlabel>
         <small>Equal to "test" validation field.</small>
@@ -167,14 +139,7 @@
       </div>
 
       <footer class="inline-flex items-center justify-end gap-4 w-full">
-        <button
-          pButton
-          type="button"
-          severity="secondary"
-          (click)="equalToForm.reset()"
-        >
-          Reset
-        </button>
+        <button pButton type="button" severity="secondary" (click)="equalToForm.reset()">Reset</button>
         <button pButton type="submit" severity="success">Validate</button>
       </footer>
     </form>
@@ -205,14 +170,7 @@
 
       <div class="w-full inline-flex flex-col gap-2">
         <p-floatlabel class="w-full" variant="on">
-          <input
-            pInputText
-            name="test11"
-            [(ngModel)]="test11"
-            class="w-full"
-            validation
-            [customValidation]="false"
-          />
+          <input pInputText name="test11" [(ngModel)]="test11" class="w-full" validation [customValidation]="false" />
         </p-floatlabel>
         <small>Custom validation field without label (always false).</small>
       </div>
@@ -229,9 +187,7 @@
             [customName]="'Test 12 Label'"
           />
         </p-floatlabel>
-        <small
-          >Required validation field with manual label (always false).</small
-        >
+        <small>Required validation field with manual label (always false).</small>
       </div>
 
       <div class="w-full inline-flex flex-col gap-2">
@@ -246,20 +202,11 @@
             [customValidationMessage]="customMessage"
           />
         </p-floatlabel>
-        <small
-          >Required validation field with custom message (always false).</small
-        >
+        <small>Required validation field with custom message (always false).</small>
       </div>
 
       <footer class="inline-flex items-center justify-end gap-4 w-full">
-        <button
-          pButton
-          type="button"
-          severity="secondary"
-          (click)="customForm.reset()"
-        >
-          Reset
-        </button>
+        <button pButton type="button" severity="secondary" (click)="customForm.reset()">Reset</button>
 
         <button pButton type="submit" severity="success">Validate</button>
       </footer>

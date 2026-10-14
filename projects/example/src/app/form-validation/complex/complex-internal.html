@@ -1,14 +1,22 @@
 <div class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-col gap-2 mt-4">
   <p-floatlabel class="w-full" variant="on">
-    <input
-      pInputText
-      name="testInput"
-      [(ngModel)]="form.inputField"
+    <input pInputText name="testInput" [(ngModel)]="form.inputField" class="w-full" validation required />
+    <label for="testInput">Input Test</label>
+  </p-floatlabel>
+</div>
+
+<div name="testTextarea" class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-col gap-2 mt-4">
+  <p-floatlabel class="w-full" variant="on">
+    <textarea
+      pTextarea
+      [id]="'testTextarea'"
+      [name]="'testTextarea'"
+      [(ngModel)]="form.textareaField"
       class="w-full"
       validation
       required
-    />
-    <label for="testInput">Input Test</label>
+    ></textarea>
+    <label [for]="'testTextarea'">Textarea Test</label>
   </p-floatlabel>
 </div>
 
@@ -62,9 +70,7 @@
   </p-floatlabel>
 </div>
 
-<div
-  class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-wrap items-start justify-start gap-2 mt-4"
->
+<div class="w-[calc(50%-(var(--spacing)*4))] inline-flex flex-wrap items-start justify-start gap-2 mt-4">
   <label for="testCheckbox">Checkbox Test</label>
   <p-checkbox
     name="testCheckbox"
